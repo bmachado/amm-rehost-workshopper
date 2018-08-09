@@ -1,0 +1,16 @@
+config:
+    renderer: markdown
+
+modules:
+  virtual-machine:
+    name: Virtual Machine
+  analyzing-a-java-ee-app-using-red-hat-application-migration-toolkit:
+    name: Analyzing a Java EE app using Red Hat Application Migration Toolkit
+  untitled:
+    name: Using JBoss Developer Studio and Eclipse Plugin
+  migrate-application-startup-code:
+    name: Migrate Application Startup Code
+  review-rhamt-issues:
+    name: Review RHAMT Issues
+  scenario1/untitled:
+    name: teste
