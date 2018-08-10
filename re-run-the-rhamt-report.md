@@ -2,7 +2,7 @@
 
 In this step we will re-run the RHAMT report to verify our migration was successful.
 
-1. Run RHAMT again on the project to eliminate the issues already fixed. Click in the ![]({% image_path /scenario1/image22.png %})icon and then Run\_configuration
+1. Run RHAMT again on the project to eliminate the issues already fixed. Click in the ![]({% image_path /scenario1/image22.png %}){:width="50 px"}icon and then Run\_configuration
 
 ![]({% image_path /scenario1/image17.png %})
 
@@ -21,7 +21,7 @@ You have successfully migrated this app to JBoss EAP, congratulations!
 
 Ensure RHAMT Server is not running in the Issue Explorer tab. If it's running, just click in its stop button.
 
-![]({% image_path /scenario1/image5.png %})
+![]({% image_path /scenario1/image5.png %}){:width="464.53333333333325 px"}
 
 
 

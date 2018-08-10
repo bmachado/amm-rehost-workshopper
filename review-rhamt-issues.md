@@ -82,7 +82,7 @@ Manually mark an RHAMT issue as fixed, which will mark the issue with the resolv
 
 ![]({% image_path /scenario1/image50.png %})
 
-Also, you can run RHAMT again on the project to eliminate the issues already fixed. Click in the ![]({% image_path /scenario1/image22.png %})icon and then Run\_configuration
+Also, you can run RHAMT again on the project to eliminate the issues already fixed. Click in the ![]({% image_path /scenario1/image22.png %}){:width="50 px"}icon and then Run\_configuration
 
 ![]({% image_path /scenario1/image17.png %})
 

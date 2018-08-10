@@ -6,11 +6,11 @@ Follow these steps to use the Eclipse plugin to identify and resolve migration i
 
 1. Import the monolith project \(`~/projects/monolith`\) to analyze into JBoss Developer Studio. Navigate to **File → Import → Existing Maven Projects → Next**
 
-![]({% image_path /scenario1/image4.png %})
+![]({% image_path /scenario1/image4.png %}){:width="416.2 px"}
 
 2. Browse to `/home/developer/projects/monolith` and click on Finish button
 
-![]({% image_path /scenario1/image23.png %})
+![]({% image_path /scenario1/image23.png %}){:width="416.2 px"}
 
 3. Create a run configuration. From the Issue Explorer, press the RHAMT button \( ![RHAMT button]({% image_path /scenario1/image43.png %}) \).
 
@@ -18,7 +18,7 @@ Follow these steps to use the Eclipse plugin to identify and resolve migration i
 
 4. Add the monolith project to RHAMT configuration
 
-![]({% image_path /scenario1/image14.png %})
+![]({% image_path /scenario1/image14.png %}){:width="624 px"}
 
 5. Click Run to execute **RHAMT**.
 

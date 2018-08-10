@@ -4,11 +4,11 @@ Our application uses [JMS](https://en.wikipedia.org/wiki/Java_Message_Service) t
 
 Much of Weblogic's interfaces for EJB components like MDBs reside in Weblogic descriptor XML files. In project explorer, open `src/main/webapp/WEB-INF/weblogic-ejb-jar.xml` to see one of these descriptors.
 
-![]({% image_path /scenario1/image51.png %})
+![]({% image_path /scenario1/image51.png %}){:width="481.59999999999997 px"}
 
 Another possibility to open weblogic-ejb-jar.xml is to use the ctrl+shift+r shortcut and fill the search with weblogic-ejb-jar name.
 
-![]({% image_path /scenario1/image12.png %})
+![]({% image_path /scenario1/image12.png %}){:width="481.59999999999997 px"}
 
 There are many different configuration possibilities for EJBs and MDBs in this file, but luckily our application only uses one of them, namely it configures `<trans-timeout-seconds>` to 30, which means that if a given transaction within an MDB operation takes too long to complete \(over 30 seconds\), then the transaction is rolled back and exceptions are thrown. This interface is Weblogic-specific so we'll need to find an equivalent in JBoss.  
 
@@ -38,11 +38,11 @@ Select `weblogic-ejb-jar.xml` and press delete key or right click the file and c
 
 Also, in project explorer, remove `src/main/java/weblogic` folder
 
-![]({% image_path /scenario1/image63.png %})
+![]({% image_path /scenario1/image63.png %}){:width="436.4666666666667 px"}
 
 Confirm the operation by clicking on ok button
 
-![]({% image_path /scenario1/image24.png %})
+![]({% image_path /scenario1/image24.png %}){:width="436.4666666666667 px"}
 
 3. Fix the code
 

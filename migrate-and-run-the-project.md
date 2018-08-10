@@ -18,11 +18,11 @@ export JBOSS_HOME=$HOME/jboss-eap-7.1
 
 Done! That is how easy it is to install JBoss EAP.
 
-Return to JBoss Developer Studio and change the perspective to JBoss by clicking in the icon ![]({% image_path /scenario1/image36.png %}) or navigating on **Window → Perspective → Open Perspective → Other → JBoss**
+Return to JBoss Developer Studio and change the perspective to JBoss by clicking in the icon ![]({% image_path /scenario1/image36.png %}){:width="137.06666666666666 px"} or navigating on **Window → Perspective → Open Perspective → Other → JBoss**
 
 Open the `pom.xml` file, and click in pom.xml tab.
 
-![]({% image_path /scenario1/image26.png %})
+![]({% image_path /scenario1/image26.png %}){:width="449.4666666666667 px"}
 
 
 

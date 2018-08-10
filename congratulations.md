@@ -60,7 +60,7 @@ NOTE: Replace \[your-username\] with your login in openshift. \[your-username\] 
 
 NOTE: YOU MUST USE `coolstore-dev` AS THE PROJECT NAME, as this name is referenced later on and you will experience failures if you do not name it `coolstore-dev`!
 
-![OpenShift Console]({% image_path /scenario1/image25.png %})
+![OpenShift Console]({% image_path /scenario1/image25.png %}){:width="391 px"}
 
 Click on the name of the newly-created project:
 
@@ -146,7 +146,7 @@ Then click finish.
 
 You will see the Openshift connection in Openshift Explorer tab.
 
-![]({% image_path /scenario1/image54.png %})
+![]({% image_path /scenario1/image54.png %}){:width="624 px"}
 
 And finally, start the build process that will take the `.war` file and combine it with JBoss EAP and produce a Linux container image which will be automatically deployed into the project, thanks to the _DeploymentConfig_ object created from the template.
 
