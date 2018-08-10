@@ -6,16 +6,16 @@ For this scenario, we will use the CLI and Eclipse Plugin as you are the only on
 
    The RHAMT CLI is has been installed for you. To verify that the tool was properly installed, open a terminal window navigating on Application → System Tools → Terminal and run the following command:
 
-```bash
+~~~shell
 ${HOME}/rhamt-cli-4.0.1.Final/bin/rhamt-cli --version
-```
+~~~
 
 You should see:
 
-```bash
+~~~shell
 Using RHAMT at /root/rhamt-cli-4.0.1.Final
 > Red Hat Application Migration Toolkit (RHAMT) CLI, version 4.0.1.Final.
-```
+~~~
 
 2. Run the RHAMT CLI against the project
 
@@ -27,7 +27,7 @@ When you later deploy the application, it will look like:
 
 The RHAMT CLI has a number of options to control how it runs. Click on the below command to execute the RHAMT CLI and analyze the existing project:
 
-```bash
+~~~shell
 ~/rhamt-cli-4.0.1.Final/bin/rhamt-cli \
   --sourceMode \
   --input ~/projects/monolith \
@@ -36,15 +36,15 @@ The RHAMT CLI has a number of options to control how it runs. Click on the below
   --source weblogic \
   --target eap:7 \
   --packages com.redhat weblogic
-```
+~~~
 
 Note the use of the --source and --target options. This allows you to target specific migration paths supported by RHMAT. Other migration paths include IBM® WebSphere® Application Server and JBoss EAP 5/6/7.
 
 Wait for it to complete before continuing!. You should see Report created in:
 
-```bash
+~~~shell
 /home/developer/rhamt-reports/monolith/index.html
-```
+~~~
 
 3. View the results
 

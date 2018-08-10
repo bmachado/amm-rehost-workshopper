@@ -4,11 +4,11 @@ Our application is at this stage pretty standards based, but it needs two things
 
 In terminal window, type the following commands:
 
-```bash
+~~~shell
 cd $HOME/projects/monolith
 export JBOSS_HOME=$HOME/jboss-eap-7.1
 mvn wildfly:start wildfly:add-resource wildfly:shutdown
-```
+~~~
 
 Wait for a `BUILD SUCCESS` message. If it fails, check that you made all the correct changes and try again!
 

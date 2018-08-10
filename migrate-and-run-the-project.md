@@ -6,23 +6,23 @@ Open a terminal window by clicking on **Applications → System Tools → Termin
 
 Run the following command in the terminal window.
 
-```bash
+~~~shell
 unzip -d $HOME $HOME/Downloads/jboss-eap-7.1.0.zip
-```
+~~~
 
 We should also set the **JBOSS\_HOME** environment variable like this:
 
-```bash
+~~~shell
 export JBOSS_HOME=$HOME/jboss-eap-7.1
-```
+~~~
 
 Done! That is how easy it is to install JBoss EAP.
 
-Return to JBoss Developer Studio and change the perspective to JBoss by clicking in the icon ![](../images/scenario1/image36.png) or navigating on **Window → Perspective → Open Perspective → Other → JBoss**
+Return to JBoss Developer Studio and change the perspective to JBoss by clicking in the icon ![]({% image_path /scenario1/image36.png %}) or navigating on **Window → Perspective → Open Perspective → Other → JBoss**
 
 Open the `pom.xml` file, and click in pom.xml tab.
 
-![](../images/scenario1/image26.png)
+![]({% image_path /scenario1/image26.png %})
 
 
 

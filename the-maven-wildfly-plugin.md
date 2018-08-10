@@ -4,18 +4,18 @@ JBoss EAP comes with a nice maven-plugin tool that can stop, start, deploy, and 
 
 At the TODO: Add wildfly plugin here we are going to add a the following configuration
 
-```markup
+~~~xml
 <plugin>
     <groupId>org.wildfly.plugins</groupId>
     <artifactId>wildfly-maven-plugin</artifactId>
     <version>1.2.1.Final</version>
     <!-- TODO: Add configuration here -->
 </plugin>
-```
+~~~
 
 Next we are going to add some configuration at the `TODO: Add configuration here` marker. First we need to point to our JBoss EAP installation using the `jboss-home` configuration. After that we will also have to tell JBoss EAP to use the profile configured for full Java EE, since it defaults to use the Java EE Web Profile. This is done by adding a `server-config` and set it to value `standalone-full.xml`
 
-```markup
+~~~xml
 <configuration>
     <jboss-home>${env.JBOSS_HOME}</jboss-home>
     <server-config>standalone-full.xml</server-config>
@@ -29,11 +29,11 @@ Next we are going to add some configuration at the `TODO: Add configuration here
     </server-args>
     <javaOpts>-Djava.net.preferIPv4Stack=true</javaOpts>
 </configuration>
-```
+~~~
 
 Since our application is using a Database we also configuration that by adding the following at the `<-- TODO: Add Datasource definition here -->` comment
 
-```markup
+~~~xml
 <resource>
     <addIfAbsent>true</addIfAbsent>
     <address>subsystem=datasources,data-source=CoolstoreDS</address>
@@ -47,18 +47,18 @@ Since our application is using a Database we also configuration that by adding t
         <password>sa</password>
     </properties>
 </resource>
-```
+~~~
 
 Since our application is using a JMS Topic we are also need to add the configuration for that by adding the following at the `<-- TODO: Add JMS Topic here -->` comment
 
-```markup
+~~~xml
 <resource>
     <address>subsystem=messaging-activemq,server=default,jms-topic=orders</address>
     <properties>
         <entries>!!["topic/orders"]</entries>
     </properties>
 </resource>
-```
+~~~
 
 We are now ready to build and test the project  
 

@@ -34,7 +34,7 @@ It will open the associated class _StartupListener_ line of code which has the d
 
 The first issue we will tackle is the one reporting the use of _Weblogic ApplicationLifecyleEvent_ and _Weblogic LifecycleListener_ in this file. Edit the file to make these changes:
 
-```java
+~~~java
 package com.redhat.coolstore.utils;
 
 import javax.annotation.PostConstruct;
@@ -62,13 +62,13 @@ public class StartupListener {
     }
 
 }
-```
+~~~
 
 3. Test the build
 
 Build and package the app using Maven to make sure the changed code still compiles. In Project Explorer, right-click on **pom.xml → Run As → Maven Build**
 
-![]({% image_path /scenario1/image56.png)
+![]({% image_path /scenario1/image56.png %})
 
 Fill up the goals with "clean package" and click on Run button.
 

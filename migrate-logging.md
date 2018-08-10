@@ -10,7 +10,7 @@ We will use the standard Java Logging framework, a much more portable framework.
 
 Open the offending file using Issue Explorer tab. Navigate until OrderServiceMDB and double-click in `NonCatalogLogger` issue. `src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java`
 
-![](../images/scenario1/image13.png)
+![]({% image_path /scenario1/image13.png %})
 
 2. Make the changes
 
@@ -18,13 +18,13 @@ Open the file to make these changes:
 
 Basically, it consists in replacing the `NonCatalogLogger` and the imports by using `java.util.logging.Logger`
 
-```java
+~~~java
  private Logger log = Logger.getLogger(OrderServiceMDB.class.getName());
-```
+~~~
 
 See the source code below:
 
-```java
+~~~java
 package com.redhat.coolstore.service;
 
 import javax.ejb.ActivationConfigProperty;
@@ -75,11 +75,11 @@ public class OrderServiceMDB implements MessageListener {
  }
 
 }
-```
+~~~
 
 That one was pretty easy.
 
 Mark the issues related to this as fixed.
 
-![](../images/scenario1/image32.png)
+![]({% image_path /scenario1/image32.png %})
 
