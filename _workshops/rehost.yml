@@ -2,7 +2,7 @@ id: "workshop1"
 name: "Rehost (Lift and Shift) - Migrating to Fast Monolith"
 
 content:
-  url: https://github.com/bmachado/amm-rehost-workshopper/master
+  url: https://raw.githubusercontent.com/bmachado/amm-rehost-workshopper/master
 
 vars:
   OPENSHIFT_DOCS_BASE: "https://docs.openshift.com/container-platform/3.7"
