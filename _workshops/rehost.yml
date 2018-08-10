@@ -33,4 +33,21 @@ modules:
   - configuring-jboss-developer-studio-with-the-application
   - congratulations
   - congratulations-1-1
+  - scenario2-intro
+  - setup-for-exercise
+  - verifying-the-dev-environment
+  - copy-files-from-container
+  - before-moving-on
+  - live-synchronization-of-project-files
+  - live-sync
+  - turn-on-live-sync
+  - make-a-change-to-the-ui
+  - before-continuing
+  - deploying-the-production-environment
+  - create-the-production-environment
+  - promoting-apps-across-environments-with-pipelines
+  - scenario2-congratulations
+  - scenario2-congratulations-1
+  - congratulations-1
+  - summary
 
