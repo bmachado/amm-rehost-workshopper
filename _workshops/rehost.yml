@@ -1,5 +1,5 @@
 id: "workshop1"
-name: "OpenShift Workshop"
+name: "Rehost (Lift and Shift) - Migrating to Fast Monolith"
 
 content:
   url: https://github.com/bmachado/amm-rehost-workshopper/master
@@ -13,9 +13,22 @@ vars:
   
 modules:
   activate:
+  - intro
   - virtual-machine
   - analyzing-a-java-ee-app-using-red-hat-application-migration-toolkit
   - untitled
   - migrate-application-startup-code
   - review-rhamt-issues
-  - scenario1/untitled
+  - migrate-logging
+  - test-the-build
+  - migrate-jms-topic
+  - test-the-build-1
+  - re-run-the-rhamt-report
+  - migrate-and-run-the-project
+  - the-maven-wildfly-plugin
+  - configuring-the-jboss-eap
+  - deploying-the-application
+  - test-the-application
+  - configuring-jboss-developer-studio-with-the-application
+  - congratulations
+  - congratulations-1-1

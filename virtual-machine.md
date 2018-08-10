@@ -4,8 +4,8 @@ You are receiving a virtual machine with everything you need already installed. 
 
 ## Login instructions
 
-* **Username:** developer
-* **Password:** developer
+* **Username:** {{OPENSHIFT_USERNAME}}
+* **Password:** {{OPENSHIFT_PASSWORD}}
 
 
 

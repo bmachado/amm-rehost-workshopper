@@ -43,8 +43,8 @@ First, open the OpenShift Console in the browser:
 
 Login using:
 
-* Username: `user[YOUR-USER-NUMBER]`
-* Password: `openshift`
+* Username: `{{OPENSHIFT_USERNAME}}`
+* Password: `{{OPENSHIFT_PASSWORD}}`
 
 You will see the OpenShift landing page:
 
