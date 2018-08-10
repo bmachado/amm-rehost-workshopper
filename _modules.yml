@@ -40,4 +40,3 @@ modules:
     name: Deploy the monolith to OpenShift
   congratulations-1-1:
     name: Congratulations!
-
