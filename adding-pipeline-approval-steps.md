@@ -12,22 +12,22 @@ https://master.\[EVENT-NAME\].openshiftworkshop.com/console/project/\[your-usern
 
 On this page you can see the pipeline definition. Click **Actions → Edit** to edit the pipeline:
 
-![Prod](../images/scenario2/image48.png)
+![Prod]({% image_path /scenario2/image48.png %})
 
 In the pipeline definition editor, add a new stage to the pipeline, just before the Deploy to PROD step:
 
 You will need to copy and paste the below code into the right place as shown in the below image.
 
-```yaml
+~~~yaml
 stage 'Approve Go Live'
   timeout(time:30, unit:'MINUTES') {
     input message:'Go Live in Production (switch to new version)?'
   }
-```
+~~~
 
  Your final pipeline should look like:
 
-![Prod](../images/scenario2/image26.png)
+![Prod]({% image_path /scenario2/image26.png %})
 
 Click **Save.**
 
@@ -37,27 +37,27 @@ With the approval step in place, let's simulate a new change from a developer wh
 
 As a developer you can easily un-do edits you made earlier to the CSS file using the source control management system \(Git\). To revert your changes, execute:
 
-```bash
+~~~shell
 git checkout src/main/webapp/app/css/coolstore.css
-```
+~~~
 
 Next, re-build the app once more:
 
-```bash
+~~~shell
 mvn clean package -Popenshift
-```
+~~~
 
 And re-deploy it to the dev environment using a binary build just as we did before:
 
-```bash
+~~~shell
 oc start-build -n [your-username]-coolstore-dev coolstore --from-file=${HOME}/projects/monolith/deployments/ROOT.war
-```
+~~~
 
 Now wait for it to complete the deployment:
 
-```bash
+~~~shell
 oc -n [your-username]-coolstore-dev rollout status -w dc/coolstore
-```
+~~~
 
 And verify that the original black header is visible in the dev application:
 
@@ -65,7 +65,7 @@ And verify that the original black header is visible in the dev application:
 
 http://www-\[your-username\]-coolstore-dev.apps.\[EVENT-NAME\].openshiftworkshop.com
 
-![Prod](../images/scenario2/image1.png)
+![Prod]({% image_path /scenario2/image1.png %})
 
 While the production application is still blue:
 
@@ -73,7 +73,7 @@ While the production application is still blue:
 
 http://www-\[your-username\]-coolstore-prod.apps.\[EVENT-NAME\].openshiftworkshop.com
 
-![Prod](../images/scenario2/image2.png)
+![Prod]({% image_path /scenario2/image2.png %})
 
 We're happy with this change in dev, so let's promote the new change to prod, using the new approval step!
 
@@ -85,7 +85,7 @@ https://master.\[EVENT-NAME\].openshiftworkshop.com/console/project/\[your-usern
 
 The same pipeline progress will be shown, however before deploying to prod, you will see a prompt in the pipeline:
 
-![Prod](../images/scenario2/image13.png)
+![Prod]({% image_path /scenario2/image13.png %})
 
 Click on the link for Input Required. This will open a new tab and direct you to Jenkins itself, where you can login with the same credentials as OpenShift:
 
@@ -94,7 +94,7 @@ Click on the link for Input Required. This will open a new tab and direct you to
 
 Accept the browser certificate warning and the Jenkins/OpenShift permissions, and then you'll find yourself at the approval prompt:
 
-![Prod](../images/scenario2/image9.png)
+![Prod]({% image_path /scenario2/image9.png %})
 
 ## 4. Approve the change to go live
 
@@ -104,9 +104,9 @@ Once you click Proceed, you will see the log file from Jenkins showing the final
 
 Wait for the production deployment to complete:
 
-```text
+~~~text
 oc rollout -n [your-username]-coolstore-prod status dc/[your-username]-coolstore-prod
-```
+~~~
 
 Once it completes, verify that the production application has the new change \(original black header\):
 
@@ -114,5 +114,5 @@ Once it completes, verify that the production application has the new change \(o
 
 http://www-\[your-username\]-coolstore-prod.apps.\[EVENT-NAME\].openshiftworkshop.com
 
-![Prod](../images/scenario2/image1.png)
+![Prod]({% image_path /scenario2/image1.png %})
 

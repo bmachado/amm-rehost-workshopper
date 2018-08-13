@@ -23,7 +23,7 @@ This is a minimal Java EE project which uses [JAX-RS](https://docs.oracle.com/ja
 
 When you later deploy the application, it will look like:
 
-![CoolStore Monolith]({% image_path /scenario1/image27.png %})
+![CoolStore Monolith]({% image_path /scenario1/image27.png %}){:with="700 px"}
 
 The RHAMT CLI has a number of options to control how it runs. Click on the below command to execute the RHAMT CLI and analyze the existing project:
 
@@ -51,11 +51,11 @@ Wait for it to complete before continuing!. You should see Report created in:
 Next, open the following file `/home/developer/rhamt-reports/monolith/index.html` in your browser. You should see the landing page for the report:
 
 =======
-![Landing Page]({% image_path /scenario1/image19.png %})
+![Landing Page]({% image_path /scenario1/image19.png %}){:width="650 px"}
 
 The main landing page of the report lists the applications that were processed. Each row contains a high-level overview of the story points, number of incidents, and technologies encountered in that application.Click on the **monolith** link to access details for the project:
 
-![Project Overview]({% image_path /scenario1/image52.png %})
+![Project Overview]({% image_path /scenario1/image52.png %}){:width="650 px"}
 
 Now that you have the RHAMT report available, let's get to work migrating the app!  
 

@@ -8,5 +8,5 @@ mvn wildfly:run
 
 Wait for the server to startup. You should see `Deployed "ROOT.war" (runtime-name: "ROOT.war")`
 
-![]({% image_path /scenario1/image41.png %})
+![]({% image_path /scenario1/image41.png %}){:width="650 px"}
 

@@ -10,7 +10,7 @@ We will use the standard Java Logging framework, a much more portable framework.
 
 Open the offending file using Issue Explorer tab. Navigate until OrderServiceMDB and double-click in `NonCatalogLogger` issue. `src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java`
 
-![]({% image_path /scenario1/image13.png %})
+![]({% image_path /scenario1/image13.png %}){:width="650 px"}
 
 2. Make the changes
 
@@ -81,5 +81,5 @@ That one was pretty easy.
 
 Mark the issues related to this as fixed.
 
-![]({% image_path /scenario1/image32.png %})
+![]({% image_path /scenario1/image32.png %}){:width="650 px"}
 

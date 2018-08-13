@@ -2,7 +2,7 @@
 
 Let's clean up the temp files we used. Execute:
 
-```bash
+~~~shell
 rm -f version.txt hello.txt
-```
+~~~
 

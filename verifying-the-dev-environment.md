@@ -10,13 +10,13 @@ Don't worry about reading and understanding the output of oc describe. Just make
 
 Run these commands to inspect the elements:
 
-```bash
+~~~shell
 oc get bc coolstore
 oc get is coolstore
 oc get dc coolstore
 oc get svc coolstore
 oc describe route www
-```
+~~~
 
 Verify that you can access the monolith by clicking on the exposed OpenShift route at
 
@@ -24,42 +24,42 @@ http://www-\[your-username\]-coolstore-dev.apps.\[EVENT-NAME\].openshiftworkshop
 
 You should also be able to see both the CoolStore monolith and its database running in separate pods:
 
-```bash
+~~~shell
 oc get pods -l application=coolstore
-```
+~~~
 
 The output should look like this:
 
-```text
+~~~text
 NAME                           READY STATUS RESTARTS AGE
 coolstore-2-bpkkc              1/1 Running 0 4m
 coolstore-postgresql-1-jpcb8   1/1 Running 0 9m
-```
+~~~
 
 ##  ****2. Verify Database
 
 You can log into the running Postgres container using the following:
 
-```bash
+~~~shell
 oc rsh dc/coolstore-postgresql
-```
+~~~
 
 Once logged in, use the following command to execute an SQL statement to show some content from the database:
 
-```bash
+~~~shell
 psql -U $POSTGRESQL_USER $POSTGRESQL_DATABASE -c 'select name from PRODUCT_CATALOG;'
-```
+~~~
 
 `$POSTGRESQL_USER` and `$POSTGRESQL_DATABASE` environment variables are already defined. If you want to check tem run the following commands:
 
-```text
+~~~text
 echo $POSTGRESQL_USER
 echo $POSTGRESQL_DATABASE
-```
+~~~
 
 You should see the following:
 
-```bash
+~~~shell
          name
 ------------------------
  Red Fedora
@@ -72,45 +72,45 @@ You should see the following:
  Oculus Rift
  Lytro Camera
 (9 rows)
-```
+~~~
 
 Don't forget to exit the pod's shell with exit
 
-```bash
+~~~shell
 sh-4.2$ exit
-```
+~~~
 
 You can also login in the management web console and run the same SQL query from your browser since Openshift provides a terminal window. Access [https://master.\[EVENT-NAME\].openshiftworkshop.com/console](about:blank) and follow the steps below:
 
 Choose the **Coolstore Monolith - Dev** in the projects menu.
 
-![](../images/scenario2/image17.png)
+![]({% image_path /scenario2/image17.png %})
 
 Expands the **coolstore-postgresql**
 
-![](../images/scenario2/image11.png)
+![]({% image_path /scenario2/image11.png %})
 
 Click in the number of running pods
 
-![](../images/scenario2/image4.png)
+![]({% image_path /scenario2/image4.png %})
 
 Go to **terminal** tab menu
 
-![](../images/scenario2/image28.png)
+![]({% image_path /scenario2/image28.png %})
 
 Run the same SQL Query command you executed previously:
 
-```bash
+~~~shell
 psql -U $POSTGRESQL_USER $POSTGRESQL_DATABASE -c 'select name from PRODUCT_CATALOG;'
-```
+~~~
 
 \*\*\*\*
 
-![](../images/scenario2/image46.png)
+![]({% image_path /scenario2/image46.png %})
 
 Also, explore the Environment tab also available and see the same environment variables you’ve seen before.
 
-![](../images/scenario2/image10.png)
+![]({% image_path /scenario2/image10.png %})
 
 With our running project on OpenShift, in the next step we'll explore how you as a developer can work with the running app to make changes and debug the application!  
 

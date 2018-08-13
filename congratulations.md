@@ -39,7 +39,7 @@ First, open the OpenShift Console in the browser:
 
 `https://master.[EVENT-NAME].openshiftworkshop.com`
 
-![OpenShift Console]({% image_path /scenario1/image28.png %})
+![OpenShift Console]({% image_path /scenario1/image28.png %}){:width="650 px"}
 
 Login using:
 
@@ -48,7 +48,7 @@ Login using:
 
 You will see the OpenShift landing page:
 
-![OpenShift Console]({% image_path /scenario1/image62.png %})
+![OpenShift Console]({% image_path /scenario1/image62.png %}){:width="650 px"}
 
 Click Create Project, fill in the fields, and click Create:
 
@@ -100,7 +100,7 @@ Then open up the Monolith Overview page at
 
 `https://master.[EVENT-NAME].openshiftworkshop.com/console/project/coolstore-dev/` and verify the monolith template items are created:
 
-![OpenShift Console]({% image_path /scenario1/image16.png %})
+![OpenShift Console]({% image_path /scenario1/image16.png %}){:width="650 px"}
 
 You can see the components being deployed on the Project Overview, but notice the No deployments for Coolstore. You have not yet deployed the container image built in previous steps, but you'll do that next.
 
@@ -116,11 +116,11 @@ Using JBoss Developer studio, right click in the pom.xml, navigate to **Run As â
   
 
 
-![]({% image_path /scenario1/image59.png %})
+![]({% image_path /scenario1/image59.png %}){:width="650 px"}
 
 Add clean package -Popenshift as the goals to this maven build
 
-![]({% image_path /scenario1/image57.png %})
+![]({% image_path /scenario1/image57.png %}){:width="650 px"}
 
 You can also run the command below in the terminal window if you prefer
 
@@ -132,15 +132,15 @@ Wait for the build to finish and the `BUILD SUCCESS` message!
 
 Go to Openshift Explorer tab and add a new connection using its wizard:
 
-![]({% image_path /scenario1/image46.png %})
+![]({% image_path /scenario1/image46.png %}){:width="650 px"}
 
 Enter the master node url provided by the instructor \([https://master.\[EVENT-NAME\].openshiftworkshop.com](about:blank)\), select Basic protocol and enter with your userN and password openshift.
 
-![]({% image_path /scenario1/image10.png %})
+![]({% image_path /scenario1/image10.png %}){:width="650 px"}
 
 Accept the SSL certificate.
 
-![]({% image_path /scenario1/image7.png %})
+![]({% image_path /scenario1/image7.png %}){:width="650 px"}
 
 Then click finish.
 
@@ -162,15 +162,15 @@ Start the coolstore application build
 oc start-build coolstore --from-file=${HOME}/projects/monolith/deployments/ROOT.war
 ~~~
 
-![]({% image_path /scenario1/image34.png %})
+![]({% image_path /scenario1/image34.png %}){:width="650 px"}
 
 Check the OpenShift web console and you'll see the application being built:
 
-![OpenShift Console]({% image_path /scenario1/image39.png %})
+![OpenShift Console]({% image_path /scenario1/image39.png %}){:width="650 px"}
 
 You will also see the Openshift Explorer tab in JBoss Developer Studio updated.
 
-![]({% image_path /scenario1/image37.png %})
+![]({% image_path /scenario1/image37.png %}){:width="650 px"}
 
 In terminal window, wait for the build and deploy to complete:
 
@@ -184,13 +184,13 @@ If the above command reports `Error from server`\(ServerTimeout\) then simply re
 
 When it's done you should see the application deployed successfully with blue circles for the database and the monolith:
 
-![OpenShift Console]({% image_path /scenario1/image38.png %})
+![OpenShift Console]({% image_path /scenario1/image38.png %}){:width="650 px"}
 
 Test the application by clicking on the Route link at
 
 `http://www.coolstore-dev.[EVENT-NAME].openshiftworkshop.com` , which will open the same monolith Coolstore in your browser, this time running on OpenShift:
 
-![OpenShift Console]({% image_path /scenario1/image53.png %})
+![OpenShift Console]({% image_path /scenario1/image53.png %}){:width="650 px"}
 
 
 

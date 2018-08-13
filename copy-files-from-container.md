@@ -4,9 +4,9 @@ As you recall from the last step, we can use `oc rsh` to execute commands inside
   
 For our Coolstore Monolith running with JBoss EAP, the application is installed in the `/opt/eap` directory in the running container. Execute the `ls` command inside the container to see this:
 
-```bash
+~~~shell
 oc  rsh dc/coolstore ls -l /opt/eap
-```
+~~~
 
 You should see a listing of files in this directory **in the running container**.  
   
@@ -15,9 +15,9 @@ It is very important to remember where commands are executed! If you think you a
 Let's copy some files out of the running container. To copy files from a running container on OpenShift, we'll use the `oc rsync` command. This command expects the name of the pod to copy from, which can be seen with this command:  
 
 
-```bash
+~~~shell
 oc get pods --selector deploymentconfig=coolstore
-```
+~~~
 
 The output should show you the name of the pod:  
   
@@ -35,21 +35,21 @@ Save the name of the pod into an environment variable called **COOLSTORE\_DEV\_P
 Commands:  
 
 
-```bash
+~~~shell
 export COOLSTORE_DEV_POD_NAME=$(oc get pods --selector deploymentconfig=coolstore -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}')
-```
+~~~
 
 Verify the variable holds the name of your pod with:
 
-```bash
+~~~shell
 echo $COOLSTORE_DEV_POD_NAME
-```
+~~~
 
 Next, run the oc rsync command in your terminal window, using the new variable to refer to the name of the pod running our coolstore:
 
-```bash
+~~~shell
 oc  rsync $COOLSTORE_DEV_POD_NAME:/opt/eap/version.txt .
-```
+~~~
 
 The output will show that the file was downloaded:
 
@@ -60,9 +60,9 @@ sent 30 bytes received 65 bytes 62,566.00 bytes/sec total size is 65 speedup is 
   
 Now you can open the file locally using the command below and inspect its contents.
 
-```bash
+~~~shell
 cat version.txt
-```
+~~~
 
 This is useful for verifying that the contents of files in your applications are what you expect.
 

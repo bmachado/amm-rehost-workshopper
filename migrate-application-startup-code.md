@@ -24,5 +24,5 @@ Follow these steps to use the Eclipse plugin to identify and resolve migration i
 
 6. Wait until the analysis reports are generated
 
-![]({% image_path /scenario1/image60.png %})
+![]({% image_path /scenario1/image60.png %}){:width="650 px"}
 

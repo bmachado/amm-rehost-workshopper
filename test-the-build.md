@@ -8,5 +8,5 @@ and then monolith
 
 If builds successfully \(you will see `BUILD SUCCESS`\), then let's move on to the next issue! If it does not compile, verify you made all the changes correctly and try the build again.
 
-![]({% image_path /scenario1/image40.png %})
+![]({% image_path /scenario1/image40.png %}){:width="650 px"}
 

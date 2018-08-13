@@ -22,11 +22,11 @@ From the RHAMT Issues report tab we will fix the remaining issues:
 * WebLogic InitialContextFactory - This is related to the above, essentially a Weblogic proprietary mechanism
 * WebLogic T3 JNDI binding - The way EJBs communicate in Weblogic is over T2, a proprietary implementation of Weblogic.
 
-![]({% image_path /scenario1/image9.png %})
+![]({% image_path /scenario1/image9.png %}){:width="650 px"}
 
 The same remaining issues are listed in the Issue Explorer. Navigate on it until find them.
 
-![]({% image_path /scenario1/image35.png %})
+![]({% image_path /scenario1/image35.png %}){:width="650 px"}
 
 All of the above interfaces have equivalents in JBoss, however they are greatly simplified and overkill for our application which uses JBoss EAP's internal message queue implementation provided by [Apache ActiveMQ Artemis](https://activemq.apache.org/artemis/).
 
@@ -48,7 +48,7 @@ Confirm the operation by clicking on ok button
 
 In Issue Explorer, double click in Call of JNDI lookup issue, it will open the associated source code line in _InventoryNotificationMDB_ class.
 
-![]({% image_path /scenario1/image11.png %})
+![]({% image_path /scenario1/image11.png %}){:width="650 px"}
 
 As described in previous steps, you can check the Issue Details to get tips and review a knowledge base article before migrating.
 
