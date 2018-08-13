@@ -30,13 +30,13 @@ oc get pods -l application=coolstore
 
 The output should look like this:
 
-~~~text
+~~~shell
 NAME                           READY STATUS RESTARTS AGE
 coolstore-2-bpkkc              1/1 Running 0 4m
 coolstore-postgresql-1-jpcb8   1/1 Running 0 9m
 ~~~
 
-##  ****2. Verify Database
+## 2. Verify Database
 
 You can log into the running Postgres container using the following:
 
@@ -84,19 +84,19 @@ You can also login in the management web console and run the same SQL query from
 
 Choose the **Coolstore Monolith - Dev** in the projects menu.
 
-![]({% image_path /scenario2/image17.png %})
+![]({% image_path /scenario2/image17.png %}){:width="650 px"}
 
 Expands the **coolstore-postgresql**
 
-![]({% image_path /scenario2/image11.png %})
+![]({% image_path /scenario2/image11.png %}){:width="650 px"}
 
 Click in the number of running pods
 
-![]({% image_path /scenario2/image4.png %})
+![]({% image_path /scenario2/image4.png %}){:width="650 px"}
 
 Go to **terminal** tab menu
 
-![]({% image_path /scenario2/image28.png %})
+![]({% image_path /scenario2/image28.png %}){:width="650 px"}
 
 Run the same SQL Query command you executed previously:
 
@@ -104,13 +104,11 @@ Run the same SQL Query command you executed previously:
 psql -U $POSTGRESQL_USER $POSTGRESQL_DATABASE -c 'select name from PRODUCT_CATALOG;'
 ~~~
 
-\*\*\*\*
-
-![]({% image_path /scenario2/image46.png %})
+![]({% image_path /scenario2/image46.png %}){:width="650 px"}
 
 Also, explore the Environment tab also available and see the same environment variables you’ve seen before.
 
-![]({% image_path /scenario2/image10.png %})
+![]({% image_path /scenario2/image10.png %}){:width="650 px"}
 
 With our running project on OpenShift, in the next step we'll explore how you as a developer can work with the running app to make changes and debug the application!  
 

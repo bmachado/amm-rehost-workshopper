@@ -44,31 +44,31 @@ You can use the oc command line to invoke the build pipeline, or the Web Console
 
 First of all, let's ensure `coolstore-prod` has the user groups needed to run the pipeline. Return to the main page by clicking in openshift logo on the left top corner.
 
-![]({% image_path /scenario2/image49.png %})
+![]({% image_path /scenario2/image49.png %}){:width="650 px"}
 
-Click in the ![]({% image_path /scenario2/image42.png %})button next to the \[your-username\]-coolstore-dev project -&gt; View Membership.
+Click in the ![]({% image_path /scenario2/image42.png %}){:width="30 px"}button next to the \[your-username\]-coolstore-dev project -&gt; View Membership.
 
-![]({% image_path /scenario2/image22.png %})
+![]({% image_path /scenario2/image22.png %}){:width="450 px"}
 
 Navigate to Service Groups, notice that **system:serviceaccounts:coolstore-prod** doesn't exist. The correct name is `coolstore-prod` instead, so the pipeline won't run successfully, it can't get the image streams in the `-dev` namespace. You can do the same steps in `coolstore-prod` project to check the service accounts created to its project.
 
-![]({% image_path /scenario2/image12.png %})
+![]({% image_path /scenario2/image12.png %}){:width="650 px"}
 
 The pipeline copies the ROOT.war running in developer to product environment. Without the correct service account in `coolstore-dev` project the image streams "coolstore" is forbidden and the pipeline created in `coolstore-prod` will thrown errors. So, click in Edit Membership button.
 
-![]({% image_path /scenario2/image23.png %})
+![]({% image_path /scenario2/image23.png %}){:width="650 px"}
 
 Add a new group called **system:serviceaccounts:coolstore-prod** with the admin role.
 
-![]({% image_path /scenario2/image19.png %})
+![]({% image_path /scenario2/image19.png %}){:width="650 px"}
 
 Remove the wrong role called **system.serviceaccounts:coolstore-prod**.
 
-![]({% image_path /scenario2/image34.png %})
+![]({% image_path /scenario2/image34.png %}){:width="650 px"}
 
 Click in Remove button to confirm it and Done Editing.
 
-![]({% image_path /scenario2/image41.png %})
+![]({% image_path /scenario2/image41.png %}){:width="650 px"}
 
 Now, we are going to fix the pipeline. Open the production project in the web console:
 
@@ -80,15 +80,15 @@ Navigate to **Builds -&gt; Pipelines -&gt; monolith-pipeline**
 
 Click in the monolith-pipeline.
 
-![]({% image_path /scenario2/image35.png %})
+![]({% image_path /scenario2/image35.png %}){:width="650 px"}
 
 Then, select **Actions -&gt; Edit**
 
-![]({% image_path /scenario2/image39.png %})
+![]({% image_path /scenario2/image39.png %}){:width="650 px"}
 
 And update the coolstore-dev namespace and coolstore-prod destinationNamespace adding \[your-username\].
 
-![]({% image_path /scenario2/image6.png %})
+![]({% image_path /scenario2/image6.png %}){:width="650 px"}
 
 The complete pipeline will be like this:
 
@@ -112,33 +112,33 @@ Jenkinsfile contents:
 
 Save the pipeline by clicking in save button in the bottom of its page.
 
-![]({% image_path /scenario2/image33.png %})
+![]({% image_path /scenario2/image33.png %}){:width="650 px"}
 
 Confirm Jenkins is running before performing the next steps. Click in Overview menu option.
 
-![]({% image_path /scenario2/image3.png %})
+![]({% image_path /scenario2/image3.png %}){:width="650 px"}
 
-Open Jenkins application details ![]({% image_path /scenario2/image14.png %})
+Open Jenkins application details ![]({% image_path /scenario2/image14.png %}){:width="30 px"}
 
-![]({% image_path /scenario2/image21.png %})
+![]({% image_path /scenario2/image21.png %}){:width="650 px"}
 
 Check if it has a running status and completed with blue color
 
-![]({% image_path /scenario2/image15.png %})
+![]({% image_path /scenario2/image15.png %}){:width="650 px"}
 
 Next, click return to the **Builds -&gt; Pipeline** menu and click Start Pipeline next to the `coolstore-monolith` pipeline:
 
-![]({% image_path /scenario2/image8.png %})
+![]({% image_path /scenario2/image8.png %}){:width="650 px"}
 
 This will start the pipeline. It will take a minute or two to start the pipeline \(future runs will not take as much time as the Jenkins infrastructure will already be warmed up\). You can watch the progress of the pipeline:
 
-![Prod]({% image_path /scenario2/image20.png %})
+![Prod]({% image_path /scenario2/image20.png %}){:width="650 px"}
 
 Once the pipeline completes, return to the Prod Project Overview at
 
 `https://master.[EVENT-NAME].openshiftworkshop.com/console/project/coolstore-prod` and notice that the application is now deployed and running!
 
-![Prod]({% image_path /scenario2/image25.png %})
+![Prod]({% image_path /scenario2/image25.png %}){:width="650 px"}
 
 View the production app with the blue header from before is running by clicking: CoolStore Production App at `http://www.coolstore-prod.apps.[EVENT-NAME].openshiftworkshop.com` \(it may take a few moments for the container to deploy fully.\)
 

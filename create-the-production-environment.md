@@ -16,11 +16,11 @@ You can also create the project using JBoss Developer Studio or Openshift Web Co
 
 Right click in the Openshift connection, go to **New -&gt; Project**
 
-![]({% image_path /scenario2/image36.png %})
+![]({% image_path /scenario2/image36.png %}){:width="650 px"}
 
 Add the same project info in the fields
 
-![]({% image_path /scenario2/image31.png %})
+![]({% image_path /scenario2/image31.png %}){:width="650 px"}
 
 2. Add the production elements
 
@@ -32,11 +32,11 @@ oc new-app --template=coolstore-monolith-pipeline-build
 
 Or right click in the new Production **coolstore-prod -&gt; New -&gt; Application**
 
-![]({% image_path /scenario2/image16.png %})
+![]({% image_path /scenario2/image16.png %}){:width="650 px"}
 
 Choose the monolith project and the coolstore-monolith-pipeline-build template.
 
-![]({% image_path /scenario2/image38.png %})
+![]({% image_path /scenario2/image38.png %}){:width="650 px"}
 
 Follow the wizard until the end.
 
@@ -48,7 +48,7 @@ Navigate to the Web Console to see your new app and the components using this li
 
 `https://master.[EVENT-NAME].openshiftworkshop.com/console/project/coolstore-prod/overview`
 
-![Prod]({% image_path /scenario2/image40.png %})
+![Prod]({% image_path /scenario2/image40.png %}){:width="650 px"}
 
 You can see the production database, and an application called _Jenkins_ which OpenShift uses to manage CI/CD pipeline deployments. There is no running production app just yet. The only running app is back in the dev environment, where you used a binary build to run the app previously.
 
@@ -63,17 +63,17 @@ There are two type of health probes available in OpenShift: [liveness probes and
 
 Now we need to increase the timeout of readiness and liveness probes. Click in the jenkins application link.
 
-![]({% image_path /scenario2/image47.png %})
+![]({% image_path /scenario2/image47.png %}){:width="650 px"}
 
 Then, go to **Actions -&gt; Edit Health Checks**
 
-![]({% image_path /scenario2/image27.png %})
+![]({% image_path /scenario2/image27.png %}){:width="650 px"}
 
 Set 480 timeout seconds to both readiness and liveness probes.
 
-![]({% image_path /scenario2/image30.png %})
+![]({% image_path /scenario2/image30.png %}){:width="550 px"}
 
 After that, click in save button.
 
-![]({% image_path /scenario2/image44.png %})In the next step, we'll promote the app from the dev environment to the production environment using an OpenShift pipeline build. Let's get going!
+![]({% image_path /scenario2/image44.png %}){:width="100 px"}In the next step, we'll promote the app from the dev environment to the production environment using an OpenShift pipeline build. Let's get going!
 
