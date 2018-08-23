@@ -18,9 +18,7 @@ oc get svc coolstore
 oc describe route www
 ~~~
 
-Verify that you can access the monolith by clicking on the exposed OpenShift route at
-
-http://www-\[your-username\]-coolstore-dev.apps.\[EVENT-NAME\].openshiftworkshop.com to open up the sample application in a separate browser tab. Full link is listed in Requested Host attribute.
+Verify that you can access the monolith by clicking on the exposed OpenShift route at {{OPENSHIFT_COOLSTORE-DEV_URL}} to open up the sample application in a separate browser tab. Full link is listed in Requested Host attribute.
 
 You should also be able to see both the CoolStore monolith and its database running in separate pods:
 
