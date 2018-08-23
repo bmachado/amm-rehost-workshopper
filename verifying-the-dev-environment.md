@@ -80,7 +80,7 @@ Don't forget to exit the pod's shell with exit
 sh-4.2$ exit
 ~~~
 
-You can also login in the management web console and run the same SQL query from your browser since Openshift provides a terminal window. Access [https://master.\[EVENT-NAME\].openshiftworkshop.com/console](about:blank) and follow the steps below:
+You can also login in the management web console and run the same SQL query from your browser since Openshift provides a terminal window. Access [{{OPENSHIFT_MASTER_URL}}/console](about:blank) and follow the steps below:
 
 Choose the **Coolstore Monolith - Dev** in the projects menu.
 

@@ -89,7 +89,7 @@ And again, wait for it to complete by executing:
 oc rollout status -w dc/coolstore
 ~~~
 
-Or follow it in the Openshift web console [https://master.\[EVENT-NAME\].openshiftworkshop.com/console](about:blank) by clicking in the coolstore project and expanding the application tab.
+Or follow it in the Openshift web console [{{OPENSHIFT_MASTER_URL}}/console](about:blank) by clicking in the coolstore project and expanding the application tab.
 
 ![](../{% image_path /scenario2/image18.png %}){:width="650 px"}
 

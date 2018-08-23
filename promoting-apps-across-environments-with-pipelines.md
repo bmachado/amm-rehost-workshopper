@@ -74,7 +74,7 @@ Now, we are going to fix the pipeline. Open the production project in the web co
 
 * Web Console - Coolstore Monolith Prod at
 
-`https://master.[EVENT-NAME].openshiftworkshop.com/console/project/coolstore-prod`
+`{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod`
 
 Navigate to **Builds -&gt; Pipelines -&gt; monolith-pipeline**
 
@@ -136,7 +136,7 @@ This will start the pipeline. It will take a minute or two to start the pipeline
 
 Once the pipeline completes, return to the Prod Project Overview at
 
-`https://master.[EVENT-NAME].openshiftworkshop.com/console/project/coolstore-prod` and notice that the application is now deployed and running!
+`{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod` and notice that the application is now deployed and running!
 
 ![Prod]({% image_path /scenario2/image25.png %}){:width="650 px"}
 

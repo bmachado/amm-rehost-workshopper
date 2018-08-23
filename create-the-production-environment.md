@@ -46,7 +46,7 @@ Navigate to the Web Console to see your new app and the components using this li
 
 * Coolstore Prod Project Overview at
 
-`https://master.[EVENT-NAME].openshiftworkshop.com/console/project/coolstore-prod/overview`
+`{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod/overview`
 
 ![Prod]({% image_path /scenario2/image40.png %}){:width="650 px"}
 
