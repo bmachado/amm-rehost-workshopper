@@ -37,7 +37,7 @@ At the `<!-- TODO: Add OpenShift profile here -->` we are going to add a the fol
 
 First, open the OpenShift Console in the browser:
 
-`https://master.[EVENT-NAME].openshiftworkshop.com`
+`{{OPENSHIFT_MASTER_URL}}`
 
 ![OpenShift Console]({% image_path /scenario1/image28.png %}){:width="650 px"}
 
@@ -55,8 +55,6 @@ Click Create Project, fill in the fields, and click Create:
 * Name: `coolstore-dev`
 * Display Name: `Coolstore Monolith - Dev`
 * Description: _leave this field empty_
-
-NOTE: Replace \[your-username\] with your login in openshift. \[your-username\] before coolstore-dev is required since all students are using the same openshift cluster and it doesn't allow to have more than one project with the same project name.
 
 NOTE: YOU MUST USE `coolstore-dev` AS THE PROJECT NAME, as this name is referenced later on and you will experience failures if you do not name it `coolstore-dev`!
 
@@ -79,7 +77,7 @@ Firstly, you will need to open the terminal window and make a login into Openshi
 Just paste it in the terminal window:
 
 ~~~shell
-oc login https://master.[EVENT-NAME].openshiftworkshop.com --token=apslfkwikdk
+oc login {{OPENSHIFT_MASTER_URL}} --token=apslfkwikdk
 ~~~
 
 Switch to the terminal window in project you created earlier:
@@ -98,7 +96,7 @@ This will deploy both a PostgreSQL database and JBoss EAP, but it will not start
 
 Then open up the Monolith Overview page at
 
-`https://master.[EVENT-NAME].openshiftworkshop.com/console/project/coolstore-dev/` and verify the monolith template items are created:
+`{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-dev/` and verify the monolith template items are created:
 
 ![OpenShift Console]({% image_path /scenario1/image16.png %}){:width="650 px"}
 
@@ -134,7 +132,7 @@ Go to Openshift Explorer tab and add a new connection using its wizard:
 
 ![]({% image_path /scenario1/image46.png %}){:width="650 px"}
 
-Enter the master node url provided by the instructor \([https://master.\[EVENT-NAME\].openshiftworkshop.com](about:blank)\), select Basic protocol and enter with your userN and password openshift.
+Enter the master node url provided by the instructor \([{{OPENSHIFT_MASTER_URL}}](about:blank)\), select Basic protocol and enter with your userN and password openshift.
 
 ![]({% image_path /scenario1/image10.png %}){:width="650 px"}
 
@@ -188,7 +186,7 @@ When it's done you should see the application deployed successfully with blue ci
 
 Test the application by clicking on the Route link at
 
-`http://www.coolstore-dev.[EVENT-NAME].openshiftworkshop.com` , which will open the same monolith Coolstore in your browser, this time running on OpenShift:
+`{{OPENSHIFT_MASTER_URL}}` , which will open the same monolith Coolstore in your browser, this time running on OpenShift:
 
 ![OpenShift Console]({% image_path /scenario1/image53.png %}){:width="650 px"}
 
