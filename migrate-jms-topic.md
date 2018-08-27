@@ -13,7 +13,7 @@ Another possibility to open weblogic-ejb-jar.xml is to use the ctrl+shift+r shor
 There are many different configuration possibilities for EJBs and MDBs in this file, but luckily our application only uses one of them, namely it configures `<trans-timeout-seconds>` to 30, which means that if a given transaction within an MDB operation takes too long to complete \(over 30 seconds\), then the transaction is rolled back and exceptions are thrown. This interface is Weblogic-specific so we'll need to find an equivalent in JBoss.  
 
 
-1. Review the issues
+**1.** Review the issues
 
 From the RHAMT Issues report tab we will fix the remaining issues:
 
@@ -30,7 +30,7 @@ The same remaining issues are listed in the Issue Explorer. Navigate on it until
 
 All of the above interfaces have equivalents in JBoss, however they are greatly simplified and overkill for our application which uses JBoss EAP's internal message queue implementation provided by [Apache ActiveMQ Artemis](https://activemq.apache.org/artemis/).
 
-2. Remove the weblogic EJB Descriptors
+**2.** Remove the weblogic EJB Descriptors
 
 Select `weblogic-ejb-jar.xml` and press delete key or right click the file and click Delete option to remove it:
 
@@ -42,9 +42,9 @@ Also, in project explorer, remove `src/main/java/weblogic` folder
 
 Confirm the operation by clicking on ok button
 
-![]({% image_path /scenario1/image24.png %}){:width="436.4666666666667 px"}
+![]({% image_path /scenario1/image24.png %}){:width="550 px"}
 
-3. Fix the code
+**3.** Fix the code
 
 In Issue Explorer, double click in Call of JNDI lookup issue, it will open the associated source code line in _InventoryNotificationMDB_ class.
 
@@ -77,7 +77,6 @@ private final static String TOPIC = "topic/orders";
 private TopicConnection tcon;
 private TopicSession tsession;
 private TopicSubscriber tsubscriber;
-
 ~~~
 
 The complete InventoryNotificationMDB source code is listed below:  

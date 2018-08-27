@@ -6,7 +6,7 @@ Use the Issue Explorer to review migration issues identified by RHAMT.
 
 Now we need to migrate the monolith app to Java EE standards.
 
-1. Review the issue related to `ApplicationLifecycleListener`
+**1.** Review the issue related to `ApplicationLifecycleListener`
 
 Group the issues by severity only:
 
@@ -22,7 +22,7 @@ RHAMT provides helpful info to understand the issue deeper and offer guidance fo
 
 ![]({% image_path scenario1/image20.png %}){:width="650px"}
 
-2. Open the file
+**2.** Open the file
 
 Open the file `src/main/java/com/redhat/coolstore/utils/StartupListener.java` by double-clicking the mandatory issue with specific WebLogic source code.
 
@@ -64,7 +64,7 @@ public class StartupListener {
 }
 ~~~
 
-3. Test the build
+**3.** Test the build
 
 Build and package the app using Maven to make sure the changed code still compiles. In Project Explorer, right-click on **pom.xml → Run As → Maven Build**
 
@@ -82,11 +82,11 @@ Manually mark an RHAMT issue as fixed, which will mark the issue with the resolv
 
 ![]({% image_path /scenario1/image50.png %})
 
-Also, you can run RHAMT again on the project to eliminate the issues already fixed. Click in the ![]({% image_path /scenario1/image22.png %}){:width="50 px"}icon and then Run\_configuration
+Also, you can run RHAMT again on the project to eliminate the issues already fixed. Click in the ![]({% image_path /scenario1/image22.png %}){:width="50 px"}icon and then Run\_configuration.
 
 ![]({% image_path /scenario1/image17.png %}){:width="600 px"}
 
 Search by `ApplicationLifecycleListener` again in the Issue Explorer and notice that it doesn't appear anymore because its fixed.
 
-![]({% image_path /scenario1/image61.png %}){:width="600 px"}
+![]({% image_path /scenario1/image61.png %}){:width="400 px"}
 
