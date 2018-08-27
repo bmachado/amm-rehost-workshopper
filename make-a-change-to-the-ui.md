@@ -35,7 +35,7 @@ Add "**package -Popenshift**" in the goals field and click run
 
 This will update the ROOT.war file and cause the application to change.
 
-Re-visit the app by reloading the Coolstore webpage `{{OPENSHIFT_COOLSTORE-DEV_URL}}`.
+Re-visit the app by reloading the Coolstore webpage `{{OPENSHIFT_COOLSTORE_DEV_URL}}`.
 
 You should now see the red header:
 
@@ -69,7 +69,7 @@ Or
 
 This will update the ROOT.war file again and cause the application to change.
 
-Re-visit the app by reloading the Coolstore webpage `{{OPENSHIFT_COOLSTORE-DEV_URL}}`.
+Re-visit the app by reloading the Coolstore webpage `{{OPENSHIFT_COOLSTORE_DEV_URL}}`.
 
 ![Blue](../{% image_path /scenario2/image2.png %}){:width="650 px"}
 
