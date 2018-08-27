@@ -15,18 +15,17 @@ It is very important to remember where commands are executed! If you think you a
 Let's copy some files out of the running container. To copy files from a running container on OpenShift, we'll use the `oc rsync` command. This command expects the name of the pod to copy from, which can be seen with this command:  
 
 
-~~~shell
+~~~
 oc get pods --selector deploymentconfig=coolstore
 ~~~
 
 The output should show you the name of the pod:  
-  
-  
 
-
-| NAME | READY | STATUS | RESTARTS | AGE |
-| :--- | :--- | :--- | :--- | :--- |
-| Coolstore-2-bpkkc | 1/1 | Running | 0 | 32m |
+~~~shell
+NAME                           READY     STATUS    RESTARTS   AGE
+coolstore-2-bpkkc              1/1       Running   0          4m
+coolstore-postgresql-1-jpcb8   1/1       Running   0          9m
+~~~
 
 The name of my running coolstore monolith pod is **coolstore-2-bpkkc** but **yours will be different**.  
   
@@ -48,7 +47,7 @@ echo $COOLSTORE_DEV_POD_NAME
 Next, run the oc rsync command in your terminal window, using the new variable to refer to the name of the pod running our coolstore:
 
 ~~~shell
-oc  rsync $COOLSTORE_DEV_POD_NAME:/opt/eap/version.txt .
+oc rsync $COOLSTORE_DEV_POD_NAME:/opt/eap/version.txt .
 ~~~
 
 The output will show that the file was downloaded:

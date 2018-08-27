@@ -6,5 +6,5 @@ In the final step we'll add a human interaction element to the pipeline, so that
 
 If you want to know more about pipelines, take a deep look on this documentation:
 
-[**OpenShift Pipeline Documentation**](https://docs.openshift.com/container-platform/3.7/dev_guide/dev_tutorials/openshift_pipeline.html)
+[**OpenShift Pipeline Documentation**]({{OPENSHIFT_DOCS_BASE}}/dev_guide/dev_tutorials/openshift_pipeline.html){:target="_blank"}
 

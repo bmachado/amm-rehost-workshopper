@@ -7,7 +7,7 @@ modules:
   virtual-machine:
     name: Virtual Machine
   analyzing-a-java-ee-app-using-red-hat-application-migration-toolkit:
-    name: Analyzing a Java EE app using Red Hat Application Migration Toolkit
+    name: SCENARIO 1 - Analyzing a Java EE app using Red Hat Application Migration Toolkit
   untitled:
     name: Using JBoss Developer Studio and Eclipse Plugin
   migrate-application-startup-code:
@@ -40,3 +40,37 @@ modules:
     name: Deploy the monolith to OpenShift
   congratulations-1-1:
     name: Congratulations!
+  scenario2-intro:
+    name: SCENARIO 2 - A Developer Introduction to OpenShift
+  setup-for-exercise:
+    name: Setup for Exercise
+  verifying-the-dev-environment:
+    name: Verifying the Dev Environment
+  copy-files-from-container:
+    name: Copy files from container
+  before-moving-on:
+    name: Before moving on
+  live-synchronization-of-project-files:
+    name: Live Synchronization of Project Files
+  live-sync:
+    name: Live Synchronization of Project Files
+  turn-on-live-sync:
+    name: Turn on Live Sync
+  make-a-change-to-the-ui:
+    name: Make a change to the UI
+  before-continuing:
+    name: Before continuing
+  deploying-the-production-environment:
+    name: Deploying the Production Environment
+  create-the-production-environment:
+    name: Create the production environment
+  promoting-apps-across-environments-with-pipelines:
+    name: Promoting Apps Across Environments with Pipelines
+  scenario2-congratulations:
+    name: Congratulations!
+  adding-pipeline-approval-steps:
+    name: Adding Pipeline Approval Steps
+  scenario2-congratulations-1:
+    name: Congratulations!
+  summary:
+    name: Summary

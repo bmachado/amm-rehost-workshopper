@@ -2,7 +2,7 @@
 
 Next, let's make a change to the app that will be obvious in the UI.  
   
-1. Open `src/main/webapp/app/css/coolstore.css`, which contains the CSS stylesheet for the  
+**1.** Open `src/main/webapp/app/css/coolstore.css`, which contains the CSS stylesheet for the  
 CoolStore app.  
   
 Add the following CSS to turn the header bar background to Red Hat red. Copy it at the bottom of the file:
@@ -16,8 +16,10 @@ Add the following CSS to turn the header bar background to Red Hat red. Copy it 
 You can use the editor you prefere, in our case we are using JBoss Developer Studio.
 
 ![]({% image_path /scenario2/image43.png %}){:width="650 px"}
+<br><br><br>
 
-2. Rebuild application For RED background
+
+**2.** Rebuild application For RED background
 
 Let's re-build the application using this command in the terminal window:
 
@@ -28,7 +30,7 @@ mvn package -Popenshift
 Or you can also right click pom.xml, navigate to **Run As -&gt; Maven Build…**
 
 ![]({% image_path /scenario2/image7.png %}){:width="650 px"}
-
+<br><br><br>
 Add "**package -Popenshift**" in the goals field and click run
 
 ![]({% image_path /scenario2/image50.png %}){:width="650 px"}
@@ -39,11 +41,11 @@ Re-visit the app by reloading the Coolstore webpage `{{OPENSHIFT_COOLSTORE_DEV_U
 
 You should now see the red header:
 
-NOTE If you don't see the red header, you may need to do a full reload of the webpage. On Windows/Linux press `CTRL+F5` or hold down SHIFT and press the Reload button, or try `CTRL+SHIFT+F5`. On Mac OS X, press `SHIFT+CMD+R`, or hold SHIFT while pressing the Reload button.
+> NOTE If you don't see the red header, you may need to do a full reload of the webpage. On Windows/Linux press `CTRL+F5` or hold down SHIFT and press the Reload button, or try `CTRL+SHIFT+F5`. On Mac OS X, press `SHIFT+CMD+R`, or hold SHIFT while pressing the Reload button.
 
 ![Red]({% image_path /scenario2/image5.png %}){:width="650 px"}
-
-3. Rebuild again for BLUE background
+<br><br><br>
+**3.** Rebuild again for BLUE background
 
 Repeat the process, but replace the background color to be blue \(click Copy to Editor to replace `#CC0000` with `blue`\):
 
@@ -52,9 +54,9 @@ background: blue
 ~~~
 
 Or change it in the color palet
-
+<br><br><br>
 ![]({% image_path /scenario2/image37.png %}){:width="250 px"}
-
+<br><br><br>
 ![]({% image_path /scenario2/image24.png %}){:width="350 px"}
 
 Again, re-build the app:
@@ -68,7 +70,7 @@ Or
 ![]({% image_path /scenario2/image29.png %}){:width="250 px"}
 
 This will update the ROOT.war file again and cause the application to change.
-
+<br><br><br>
 Re-visit the app by reloading the Coolstore webpage `{{OPENSHIFT_COOLSTORE_DEV_URL}}`.
 
 ![Blue](../{% image_path /scenario2/image2.png %}){:width="650 px"}
@@ -89,7 +91,7 @@ And again, wait for it to complete by executing:
 oc rollout status -w dc/coolstore
 ~~~
 
-Or follow it in the Openshift web console [{{OPENSHIFT_MASTER_URL}}/console](about:blank) by clicking in the coolstore project and expanding the application tab.
+Or follow it in the Openshift web console [{{OPENSHIFT_MASTER_URL}}/console]({{OPENSHIFT_MASTER_URL}}/console){:target="_blank"} by clicking in the coolstore project and expanding the application tab.
 
 ![](../{% image_path /scenario2/image18.png %}){:width="650 px"}
 

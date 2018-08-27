@@ -5,12 +5,12 @@ content:
   url: https://raw.githubusercontent.com/bmachado/amm-rehost-workshopper/master
 
 vars:
-  OPENSHIFT_DOCS_BASE: "https://docs.openshift.com/container-platform/3.7"
-  OPENSHIFT_MASTER_URL: "http://192.168.1.100:8443"
+  OPENSHIFT_DOCS_BASE: "https://docs.openshift.com/container-platform/3.9"
+  OPENSHIFT_MASTER_URL: "OPENSHIFT-MASTER-URL"
   OPENSHIFT_USERNAME: "developer"
   OPENSHIFT_PASSWORD: "developer"
-  OPENSHIFT_COOLSTORE_PROD_URL: "http://www.coolstore-prod.apps.[EVENT-NAME].openshiftworkshop.com"
-  OPENSHIFT_COOLSTORE_DEV_URL: "http://www.coolstore-dev.[EVENT-NAME].openshiftworkshop.com"
+  OPENSHIFT_COOLSTORE_DEV_URL: "OPENSHIFT-COOLSTORE-DEV-URL"
+  OPENSHIFT_COOLSTORE_PROD_URL: "OPENSHIFT-COOLSTORE-PROD-URL"
   MINISHIFT: true
   JAVA_APP: true
   
@@ -49,7 +49,6 @@ modules:
   - create-the-production-environment
   - promoting-apps-across-environments-with-pipelines
   - scenario2-congratulations
+  - adding-pipeline-approval-steps
   - scenario2-congratulations-1
-  - congratulations-1
   - summary
-

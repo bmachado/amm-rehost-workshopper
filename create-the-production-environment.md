@@ -2,7 +2,7 @@
 
 We will create and initialize the new production environment using another template in a separate OpenShift project.
 
-1. Initialize production project environment
+**1.** Initialize production project environment
 
 Execute the following oc command to create a new project:
 
@@ -17,12 +17,12 @@ You can also create the project using JBoss Developer Studio or Openshift Web Co
 Right click in the Openshift connection, go to **New -&gt; Project**
 
 ![]({% image_path /scenario2/image36.png %}){:width="650 px"}
-
+<br><br><br>
 Add the same project info in the fields
 
 ![]({% image_path /scenario2/image31.png %}){:width="650 px"}
-
-2. Add the production elements
+<br><br><br>
+**2.** Add the production elements
 
 In this case we'll use the production template to create the objects. Execute:
 
@@ -33,11 +33,11 @@ oc new-app --template=coolstore-monolith-pipeline-build
 Or right click in the new Production **coolstore-prod -&gt; New -&gt; Application**
 
 ![]({% image_path /scenario2/image16.png %}){:width="650 px"}
-
+<br><br><br>
 Choose the monolith project and the coolstore-monolith-pipeline-build template.
 
 ![]({% image_path /scenario2/image38.png %}){:width="650 px"}
-
+<br><br><br>
 Follow the wizard until the end.
 
 This will use an OpenShift Template called `coolstore-monolith-pipeline-build` to construct the production application. As you probably guessed it will also include a Jenkins Pipeline to control the production application \(more on this later!\)
@@ -46,7 +46,7 @@ Navigate to the Web Console to see your new app and the components using this li
 
 * Coolstore Prod Project Overview at
 
-`{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod/overview`
+[{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod/overview]({{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod/overview){:target="_blank"}
 
 ![Prod]({% image_path /scenario2/image40.png %}){:width="650 px"}
 
@@ -59,7 +59,7 @@ Furthermore, there are of course a category of issues that can’t be resolved b
 
 There are two type of health probes available in OpenShift: [liveness probes and readiness probes](https://docs.openshift.com/container-platform/3.9/dev_guide/application_health.html#container-health-checks-using-probes). Liveness probes are to know when to restart a container and readiness probes to know when a Container is ready to start accepting traffic.
 
-**Only execute these steps with your Jenkins has warning messages or errors. It's not required if its running well**.
+>Only execute the next steps with your Jenkins has warning messages or errors. It's not required if its running well.
 
 Now we need to increase the timeout of readiness and liveness probes. Click in the jenkins application link.
 
@@ -68,12 +68,14 @@ Now we need to increase the timeout of readiness and liveness probes. Click in t
 Then, go to **Actions -&gt; Edit Health Checks**
 
 ![]({% image_path /scenario2/image27.png %}){:width="650 px"}
-
+<br><br><br>
 Set 480 timeout seconds to both readiness and liveness probes.
 
 ![]({% image_path /scenario2/image30.png %}){:width="550 px"}
-
+<br><br><br>
 After that, click in save button.
 
-![]({% image_path /scenario2/image44.png %}){:width="100 px"}In the next step, we'll promote the app from the dev environment to the production environment using an OpenShift pipeline build. Let's get going!
+![]({% image_path /scenario2/image44.png %}){:width="100 px"}
+<br><br><br>
+In the next step, we'll promote the app from the dev environment to the production environment using an OpenShift pipeline build. Let's get going!
 
