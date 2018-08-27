@@ -94,7 +94,7 @@ This will deploy both a PostgreSQL database and JBoss EAP, but it will not start
 
 Then open up the Monolith Overview page at
 
-`{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-dev/` and verify the monolith template items are created:
+[{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-dev/]({{OPENSHIFT_MASTER_URL}}/console/project/coolstore-dev/){:target="_blank"} and verify the monolith template items are created:
 
 ![OpenShift Console]({% image_path /scenario1/image16.png %}){:width="650 px"}
 

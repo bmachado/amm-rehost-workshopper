@@ -81,27 +81,23 @@ sh-4.2$ exit
 You can also login in the management web console and run the same SQL query from your browser since Openshift provides a terminal window. Access [{{OPENSHIFT_MASTER_URL}}/console]({{OPENSHIFT_MASTER_URL}}/console){:target="_blank"} and follow the steps below:
 
 Choose the **Coolstore Monolith - Dev** in the projects menu.
-
-![]({% image_path /scenario2/image17.png %}){:width="650 px"}
-
+![]({% image_path /scenario2/image17.png %}){:width="350 px"}
+<br><br><br>
 Expands the **coolstore-postgresql**
-
 ![]({% image_path /scenario2/image11.png %}){:width="650 px"}
-
+<br><br><br>
 Click in the number of running pods
-
 ![]({% image_path /scenario2/image4.png %}){:width="650 px"}
-
+<br><br><br>
 Go to **terminal** tab menu
-
-![]({% image_path /scenario2/image28.png %}){:width="650 px"}
-
+![]({% image_path /scenario2/image28.png %}){:width="450 px"}
+<br><br><br>
 Run the same SQL Query command you executed previously:
 
 ~~~shell
 psql -U $POSTGRESQL_USER $POSTGRESQL_DATABASE -c 'select name from PRODUCT_CATALOG;'
 ~~~
-
+<br><br><br>
 ![]({% image_path /scenario2/image46.png %}){:width="650 px"}
 
 Also, explore the Environment tab also available and see the same environment variables you’ve seen before.
