@@ -71,7 +71,7 @@ Or
 
 This will update the ROOT.war file again and cause the application to change.
 <br><br><br>
-Re-visit the app by reloading the Coolstore webpage `{{OPENSHIFT_COOLSTORE_DEV_URL}}`.
+Re-visit the app by reloading the Coolstore webpage `{{OPENSHIFT_COOLSTORE_DEV_URL}}`
 
 ![Blue](../{% image_path /scenario2/image2.png %}){:width="650 px"}
 
