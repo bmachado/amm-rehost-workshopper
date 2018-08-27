@@ -18,7 +18,7 @@ oc get svc coolstore
 oc describe route www
 ~~~
 
-Verify that you can access the monolith by clicking on the exposed OpenShift route at {{OPENSHIFT_COOLSTORE_DEV_URL}} to open up the sample application in a separate browser tab. Full link is listed in Requested Host attribute.
+Verify that you can access the monolith by clicking on the exposed OpenShift route at [{{OPENSHIFT_COOLSTORE_DEV_URL}}]({{OPENSHIFT_COOLSTORE_DEV_URL}}){:target="_blank"} to open up the sample application in a separate browser tab. Full link is listed in Requested Host attribute.
 
 You should also be able to see both the CoolStore monolith and its database running in separate pods:
 
@@ -78,7 +78,7 @@ Don't forget to exit the pod's shell with exit
 sh-4.2$ exit
 ~~~
 
-You can also login in the management web console and run the same SQL query from your browser since Openshift provides a terminal window. Access [{{OPENSHIFT_MASTER_URL}}/console](about:blank) and follow the steps below:
+You can also login in the management web console and run the same SQL query from your browser since Openshift provides a terminal window. Access [{{OPENSHIFT_MASTER_URL}}/console]({{OPENSHIFT_MASTER_URL}}/console){:target="_blank"} and follow the steps below:
 
 Choose the **Coolstore Monolith - Dev** in the projects menu.
 
