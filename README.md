@@ -4,9 +4,11 @@ You can deploy this test drive as a container image anywhere but most convenient
 
 ~~~shell
 oc new-project workshopper
-oc new-app quay.io/osevg/workshopper --name=testdrive -e WORKSHOPS_URLS="https://raw.githubusercontent.com/bmachado/amm-rehost-workshopper/master/_workshops/rehost.yml"
+oc new-app quay.io/osevg/workshopper:0.3 --name=testdrive -e WORKSHOPS_URLS="https://raw.githubusercontent.com/bmachado/amm-rehost-workshopper/master/_workshops/rehost.yml"
 oc expose svc/testdrive
 ~~~
+
+Or simply run `scripts/ocp-new-project.sh`
 
 # Run Guides Locally
 
@@ -18,5 +20,5 @@ $ docker run -it --rm -p 8080:8080 -v $(pwd):/app-data \
               -e CONTENT_URL_PREFIX="file:///app-data" \
               -e WORKSHOPS_URLS="file:///app-data/_workshops/rehost.yml" \
               -e LOG_TO_STDOUT=true \
-              osevg/workshopper:edge
+              quay.io/osevg/workshopper:0.3
 ~~~
