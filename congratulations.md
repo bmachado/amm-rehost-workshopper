@@ -2,7 +2,7 @@
 
 We now have a fully migrated application that we tested locally. Let's deploy it to OpenShift.
 
-1. Add a OpenShift profile
+**1.** Add a OpenShift profile
 
 Open the `pom.xml` file.
 
@@ -33,13 +33,13 @@ At the `<!-- TODO: Add OpenShift profile here -->` we are going to add a the fol
 </profile>
 ~~~
 
-2. Create the OpenShift project
+**2.** Create the OpenShift project
 
 First, open the OpenShift Console in the browser:
 
 `{{OPENSHIFT_MASTER_URL}}`
 
-![OpenShift Console]({% image_path /scenario1/image28.png %}){:width="650 px"}
+![OpenShift Console]({% image_path /scenario1/image28.png %}){:width="550 px"}
 
 Login using:
 
@@ -66,13 +66,13 @@ Click on the name of the newly-created project:
 
 This will take you to the project overview. There's nothing there yet, but that's about to change.
 
-3. Deploy the monolith
+**3.** Deploy the monolith
 
 We'll use the CLI to deploy the components for our monolith. To deploy the monolith template using the CLI, execute the following commands:
 
 Firstly, you will need to open the terminal window and make a login into Openshift Container Platform. The web interface provides a ready to use oc command with the token needed.
 
-![]({% image_path /scenario1/image30.png %})
+![]({% image_path /scenario1/image30.png %}){:width="250 px"}
 
 Just paste it in the terminal window:
 
@@ -102,7 +102,7 @@ Then open up the Monolith Overview page at
 
 You can see the components being deployed on the Project Overview, but notice the No deployments for Coolstore. You have not yet deployed the container image built in previous steps, but you'll do that next.
 
-4. Deploy application using Binary build
+**4.** Deploy application using Binary build
 
 In this development project we have selected to use a process called binary builds, which means that we are going to build locally and just upload the artifact \(e.g. the .war file\). The binary deployment will speed up the build process significantly.
 
@@ -134,17 +134,17 @@ Go to Openshift Explorer tab and add a new connection using its wizard:
 
 Enter the master node url provided by the instructor \([{{OPENSHIFT_MASTER_URL}}](about:blank)\), select Basic protocol and enter with your userN and password openshift.
 
-![]({% image_path /scenario1/image10.png %}){:width="650 px"}
+![]({% image_path /scenario1/image10.png %}){:width="450 px"}
 
 Accept the SSL certificate.
 
-![]({% image_path /scenario1/image7.png %}){:width="650 px"}
+![]({% image_path /scenario1/image7.png %}){:width="450 px"}
 
 Then click finish.
 
 You will see the Openshift connection in Openshift Explorer tab.
 
-![]({% image_path /scenario1/image54.png %}){:width="624 px"}
+![]({% image_path /scenario1/image54.png %}){:width="524 px"}
 
 And finally, start the build process that will take the `.war` file and combine it with JBoss EAP and produce a Linux container image which will be automatically deployed into the project, thanks to the _DeploymentConfig_ object created from the template.
 
@@ -168,7 +168,7 @@ Check the OpenShift web console and you'll see the application being built:
 
 You will also see the Openshift Explorer tab in JBoss Developer Studio updated.
 
-![]({% image_path /scenario1/image37.png %}){:width="650 px"}
+![]({% image_path /scenario1/image37.png %}){:width="550 px"}
 
 In terminal window, wait for the build and deploy to complete:
 
