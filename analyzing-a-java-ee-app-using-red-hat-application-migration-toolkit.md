@@ -2,7 +2,7 @@
 
 For this scenario, we will use the CLI and Eclipse Plugin as you are the only one that will run RHAMT in this system. For multi-user use, the Web Console would be a good option.
 
-1. Verify Red Hat Application Migration Toolkit CLI
+**1.** Verify Red Hat Application Migration Toolkit CLI
 
    The RHAMT CLI is has been installed for you. To verify that the tool was properly installed, open a terminal window navigating on Application → System Tools → Terminal and run the following command:
 
@@ -17,7 +17,7 @@ Using RHAMT at /root/rhamt-cli-4.0.1.Final
 > Red Hat Application Migration Toolkit (RHAMT) CLI, version 4.0.1.Final.
 ~~~
 
-2. Run the RHAMT CLI against the project
+**2.** Run the RHAMT CLI against the project
 
 This is a minimal Java EE project which uses [JAX-RS](https://docs.oracle.com/javaee/7/tutorial/jaxrs.htm) for building RESTful services and the [Java Persistence API \(JPA\)](https://docs.oracle.com/javaee/7/tutorial/partpersist.htm) for connecting to a database and an [AngularJS](https://angularjs.org/) frontend.
 
@@ -46,11 +46,10 @@ Wait for it to complete before continuing!. You should see Report created in:
 /home/developer/rhamt-reports/monolith/index.html
 ~~~
 
-3. View the results
+**3.** View the results
 
 Next, open the following file `/home/developer/rhamt-reports/monolith/index.html` in your browser. You should see the landing page for the report:
 
-=======
 ![Landing Page]({% image_path /scenario1/image19.png %}){:width="650 px"}
 
 The main landing page of the report lists the applications that were processed. Each row contains a high-level overview of the story points, number of incidents, and technologies encountered in that application.Click on the **monolith** link to access details for the project:
