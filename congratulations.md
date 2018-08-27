@@ -186,7 +186,7 @@ When it's done you should see the application deployed successfully with blue ci
 
 Test the application by clicking on the Route link at
 
-`{{OPENSHIFT_MASTER_URL}}` , which will open the same monolith Coolstore in your browser, this time running on OpenShift:
+`{{OPENSHIFT_COOLSTORE_DEV_URL}}` , which will open the same monolith Coolstore in your browser, this time running on OpenShift:
 
 ![OpenShift Console]({% image_path /scenario1/image53.png %}){:width="650 px"}
 
