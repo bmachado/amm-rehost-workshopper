@@ -4,10 +4,10 @@ sudo iptables -F
 myExtIP=$(curl -s http://www.opentlc.com/getip)
 echo myExtIP: $myExtIP
 
-myGUID=$(awk -F "[ ]+" '/GUID/{print $NF}' /etc/motd)
+myGUID=`ssh root@bastion.example.com hostname|cut -f2 -d-|cut -f1 -d.`
 echo myGUID: $myGUID
 
-if [[ -z $myGUID ]]
+if [[ $myGUID == 'repl' ]]
    then
         DOMAIN=$myExtIP.xip.io
         HOST=$DOMAIN
