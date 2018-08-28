@@ -37,7 +37,7 @@ Add "**package -Popenshift**" in the goals field and click run
 
 This will update the ROOT.war file and cause the application to change.
 
-Re-visit the app by reloading the Coolstore webpage `{{OPENSHIFT_COOLSTORE_DEV_URL}}`.
+Re-visit the app by reloading the Coolstore webpage [{{OPENSHIFT_COOLSTORE_DEV_URL}}]({{OPENSHIFT_COOLSTORE_DEV_URL}}){:target="_blank"}.
 
 You should now see the red header:
 
