@@ -60,6 +60,8 @@ createNewProject() {
   WORKSHOPPER_REMOVE_PROJECT=true
   DELETE_OPENSHIFT_PROJECT_MESSAGE=$(echo "Removing namespace ${WORKSHOPPER_OPENSHIFT_PROJECT}")
 
+  ${OC_BINARY} login -u system:admin --certificate-authority=/etc/origin/master/master.proxy-client.crt --insecure-skip-tls-verify=true
+
   if ${OC_BINARY} get project "${WORKSHOPPER_OPENSHIFT_PROJECT}" &> /dev/null; then
     echo "Namespace \"${WORKSHOPPER_OPENSHIFT_PROJECT}\" exists."
     while $WAIT_FOR_PROJECT_TO_DELETE
