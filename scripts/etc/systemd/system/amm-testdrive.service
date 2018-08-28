@@ -1,0 +1,11 @@
+[Unit]
+Description=Application Modernization and Migration Test Drive: Rehost - Migrating to fast monolith
+After=default.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/amm-testdrive-installer.sh
+TimeoutStartSec=0
+
+[Install]
+WantedBy=default.target
