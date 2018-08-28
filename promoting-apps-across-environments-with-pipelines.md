@@ -65,9 +65,9 @@ This will start the pipeline. It will take a minute or two to start the pipeline
 
 Once the pipeline completes, return to the Prod Project Overview at
 
-`{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod` and notice that the application is now deployed and running!
+[{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod]({{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod){:target="_blank"} and notice that the application is now deployed and running!
 
 ![Prod]({% image_path /scenario2/image25.png %}){:width="650 px"}
 
-View the production app with the blue header from before is running by clicking: CoolStore Production App at `{{OPENSHIFT_COOLSTORE_DEV_URL}}` \(it may take a few moments for the container to deploy fully.\)
+View the production app with the blue header from before is running by clicking: CoolStore Production App at [{{OPENSHIFT_COOLSTORE_PROD_URL}}]({{OPENSHIFT_COOLSTORE_PROD_URL}}){:target="_blank"} \(it may take a few moments for the container to deploy fully.\)
 
