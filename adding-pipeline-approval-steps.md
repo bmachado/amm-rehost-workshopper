@@ -83,7 +83,7 @@ We're happy with this change in dev, so let's promote the new change to prod, us
 
 Invoke the pipeline once more by clicking Start Pipeline on the Pipeline Config page at
 
-[{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod/browse/pipelines/monolith-pipeline]({{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod/browse/pipelines/monolith-pipeline){:width="450 px"}
+[{{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod/browse/pipelines/monolith-pipeline]({{OPENSHIFT_MASTER_URL}}/console/project/coolstore-prod/browse/pipelines/monolith-pipeline){:target="_blank"}
 
 The same pipeline progress will be shown, however before deploying to prod, you will see a prompt in the pipeline:
 
