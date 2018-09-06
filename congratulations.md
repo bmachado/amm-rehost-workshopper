@@ -130,11 +130,11 @@ Go to Openshift Explorer tab and add a new connection using its wizard:
 
 ![]({% image_path /scenario1/image46.png %}){:width="650 px"}
 
-Enter the master node url provided by the instructor \([{{OPENSHIFT_MASTER_URL}}]({{OPENSHIFT_MASTER_URL}}){:target="_blank"}\), select Basic protocol and enter with your userN and password openshift.
+Enter the master node url provided by the instructor \([{{OPENSHIFT_MASTER_URL}}]({{OPENSHIFT_MASTER_URL}}){:target="_blank"}\), select Basic protocol and enter with username `developer` and password `developer`.
 
 ![]({% image_path /scenario1/image10.png %}){:width="450 px"}
 
-Accept the SSL certificate.
+If asked, accept the SSL certificate.
 
 ![]({% image_path /scenario1/image7.png %}){:width="450 px"}
 
