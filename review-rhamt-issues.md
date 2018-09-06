@@ -8,10 +8,6 @@ Now we need to migrate the monolith app to Java EE standards.
 
 **1.** Review the issue related to `ApplicationLifecycleListener`
 
-Group the issues by severity only:
-
-![]({% image_path /scenario1/image3.png %}){:width="650 px"}
-
 Navigate in the Issue Explorer until find the ApplicationLifecycleListener, or type the name of it in the search field.
 
 Right-click on it and select **Issue Details** to view information about the RHAMT issue, including its severity and how to address it.  
