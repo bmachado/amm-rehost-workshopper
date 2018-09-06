@@ -56,6 +56,8 @@ The main landing page of the report lists the applications that were processed. 
 
 ![Project Overview]({% image_path /scenario1/image52.png %}){:width="650 px"}
 
-Now that you have the RHAMT report available, let's get to work migrating the app!  
+You can now close the report browser window.
+In the next steps, we'll keep the report inside JBoss Developer Studio using RHAMT Plugin.
+Let's get to work migrating the app!  
 
 
