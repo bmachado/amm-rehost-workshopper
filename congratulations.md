@@ -130,7 +130,7 @@ Go to Openshift Explorer tab and add a new connection using its wizard:
 
 ![]({% image_path /scenario1/image46.png %}){:width="650 px"}
 
-Enter the master node url provided by the instructor \([{{OPENSHIFT_MASTER_URL}}]({{OPENSHIFT_MASTER_URL}}){:target="_blank"}\), select Basic protocol and enter with username `developer` and password `developer`.
+Enter the master node url provided by the instructor \([{{OPENSHIFT_MASTER_URL}}]({{OPENSHIFT_MASTER_URL}}){:target="_blank"}\), select Basic protocol and enter with username `{{OPENSHIFT_USERNAME}}` and password `{{OPENSHIFT_PASSWORD}}`.
 
 ![]({% image_path /scenario1/image10.png %}){:width="450 px"}
 
