@@ -1,5 +1,5 @@
+# This is AMM Rehost Workshop v2
 # Deploy On OpenShift
-
 You can deploy this test drive as a container image anywhere but most conveniently, you can deploy it on OpenShift or Minishift:
 
 ~~~shell
