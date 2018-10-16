@@ -15,6 +15,7 @@ vars:
 modules:
   activate:
   - intro
+  - lab-environment
   - virtual-machine
   - analyzing-a-java-ee-app-using-red-hat-application-migration-toolkit
   - untitled
