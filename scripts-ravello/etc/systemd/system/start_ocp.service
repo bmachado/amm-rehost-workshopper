@@ -1,0 +1,13 @@
+[Unit]
+Description=Start OCP
+#After=atomic-openshift-master-controllers.service atomic-openshift-master-api.service
+Wants=network-online.target
+After=network-online.target
+
+
+[Service]
+ExecStart=/home/jboss/startocp.sh
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
