@@ -1,0 +1,388 @@
+= OpenShift "oc cluster up" Wrapper script
+
+*oc cluster up* is a great tool for doing local development in openshift, but it lacks some really interesting features to
+be productive from a developer's perspective. This script helps developers with their casual/daily worksflows while using
+*oc cluster* as the internal tool.
+
+== Installing
+The easiest way is to clone this repository, so you can just update the script via a *"git pull"* command. But you can always get one of the releases available at
+link:https://github.com/openshift-evangelists/oc-cluster-wrapper/releases[oc-cluster releases].
+
+=== Linux
+On linux (tested on fedora 25):
+
+----
+git clone https://github.com/openshift-evangelists/oc-cluster-wrapper
+echo 'PATH=$HOME/oc-cluster-wrapper:$PATH' >> $HOME/.bash_profile
+echo 'export PATH' >> $HOME/.bash_profile
+----
+
+If you want to add bash completion (you might need to execute this as sudo):
+
+----
+$HOME/oc-cluster-wrapper/oc-cluster completion bash > /etc/bash_completion.d/oc-cluster.bash
+----
+
+=== Mac OS
+
+On mac (tested on El Capitan and Sierra):
+
+----
+git clone https://github.com/openshift-evangelists/oc-cluster-wrapper
+echo 'PATH=$HOME/oc-cluster-wrapper:$PATH' >> $HOME/.bash_profile
+echo 'export PATH' >> $HOME/.bash_profile
+----
+
+If you want to add bash completion and are using Homebrew:
+
+----
+$HOME/oc-cluster-wrapper/oc-cluster completion bash > $(brew --prefix)/etc/bash_completion.d/oc-cluster.bash
+----
+
+If you're not using Homebrew, source a completion file:
+
+----
+$HOME/oc-cluster-wrapper/oc-cluster completion bash > $HOME/.oc-cluster.bash
+echo 'source ./.oc-cluster.bash' >> $HOME/.bash_profile
+----
+
+Note that bash completion will not work until your first "oc-cluster up" populates $HOME/.oc/profiles.
+
+== What it provides
+This script provides the following enhancements:
+
+* cluster profiles
+* cluster management lifecycle
+* convenience methods for working with persistent volumes
+* convenience methods for adding common software to your cluster (This will be rewritten to be a plugin like mechanism)
+
+== Cluster profiles
+As a developer, you do not always want to work on the same project, with the same code. Sometimes you need to be able to
+switch between different clusters. For that, we provide a *profile* concept. How does this work? To learn how this works, see the following example:
+
+----
+oc-cluster up                 # Brings up a <default> cluster
+oc-cluster down
+oc-cluster up java-cluster    # Brings up a cluster named java-cluster
+oc-cluster down
+oc-cluster up workshop        # Brings up a cluster named workshop
+oc-cluster down
+oc-cluster up java-cluster    # Brings up the previous java-cluster with all the info from the previous running cluster with the same name
+oc-cluster down
+----
+
+As you've realized the clusters by default are persistent. That means that you can create as many clusters (profiles) as you
+want, and bring them up and down at will. But what do I do once I'm finished with a cluster? For that there is a *cluster management lifecycle*.
+
+== Cluster management lifecycle
+Again, we'll use some examples to ilustrate:
+
+----
+$ oc-cluster up example
+oc cluster up --public-hostname 127.0.0.1 --host-data-dir /Users/jmorales/.oc/profiles/example/data
+              --host-config-dir /Users/jmorales/.oc/profiles/example/config
+              --use-existing-config
+-- Checking OpenShift client ... OK
+-- Checking Docker client ... OK
+-- Checking Docker version ... OK
+-- Checking for existing OpenShift container ... OK
+-- Checking for openshift/origin:v1.3.0 image ... OK
+-- Checking Docker daemon configuration ... OK
+-- Checking for available ports ... OK
+-- Checking type of volume mount ...
+   Using Docker shared volumes for OpenShift volumes
+-- Creating host directories ... OK
+-- Finding server IP ...
+   Using public hostname IP 127.0.0.1 as the host IP
+   Using 127.0.0.1 as the server IP
+-- Starting OpenShift container ...
+   Creating initial OpenShift configuration
+   Starting OpenShift using container 'origin'
+   Waiting for API server to start listening
+   OpenShift server started
+-- Installing registry ... OK
+-- Installing router ... OK
+-- Importing image streams ... OK
+-- Importing templates ... OK
+-- Login to server ... OK
+-- Creating initial project "myproject" ... OK
+-- Server Information ...
+   OpenShift server started.
+   The server is accessible via web console at:
+       https://127.0.0.1:8443
+
+   You are logged in as:
+       User:     developer
+       Password: developer
+
+   To login as administrator:
+       oc login -u system:admin
+
+Any user is sudoer. They can execute commands with '--as=system:admin'
+----
+
+Now, let's work with the cluster:
+
+----
+$ oc new-project example
+$ oc new-app wildfly~https://github.com/OpenShiftDemos/os-sample-java-web.git
+----
+
+I'm gone for a while, I need to know if my cluster is running:
+
+----
+$ oc-cluster status
+oc cluster running. Current profile <example>
+----
+
+I need to get some information on my clusters:
+
+----
+$ oc-cluster list
+Profiles:
+- example
+- roadshow
+- test
+
+$ oc-cluster console
+https://127.0.0.1:8443/console
+----
+
+I need to log in to the origin container, to check something:
+
+----
+$ oc-cluster ssh
+Going into the Origin Container
+[root@moby origin]# pwd
+/var/lib/origin
+----
+
+I'm done, let's get rid of this cluster:
+
+----
+$ oc-cluster destroy
+Are you sure you want to destroy cluster with profile <example> (y/n)? y
+Removing profile example
+Bringing the cluster down
+
+Removing /Users/jmorales/.oc/profiles/example
+----
+
+=== How this works?
+For the profiles to work, by default a subdirectory will be created in *$HOME/.oc/profiles* with the profile name. A file called *$HOME/.oc/active_profile*
+will hold also the name of the active profile, if there is a cluster up. Removing the cluster will remove the subdirectory holding all
+the profile data.
+
+We're using --host-data-config and --host-data-dir to retain the configuration of the cluster, as we understand this is basic for daily
+use of the tool. And we use --keep-config to retain this information.
+
+We're also binding the cluster to 127.0.0.1 as this is the way to make the cluster secure, and reproducible, as the ip address changes when you move from network
+to network. Also, anyone can log into your running cluster if you had a cluster up, since it's using *AnyPasswd* identity provider.
+
+We also do two really convenient things for developers:
+
+* We create an *admin/admin* user that will be a *cluster-admin*, so you can login as admin from the web console
+* We add the *sudoer* role to *system:authenticated* so that any user can impersonate *cluster-admin* without needing to change user profiles
+* Provides 10 PV of type hostPath to use (handy for pre 1.5 clients)
+* Label images built with the cluster, so anytime you destroy a cluster, all these images will also be removed.
+* Creates a .kube context to the current cluster with the name of the profile, so succesive startups of the cluster will have the context set.
+
+== Plugins
+The tool provides a plugin mechanism to add functionality. There's 2 types of plugins:
+
+* global plugins. Are always accesible.
+* local plugins. Need to be installed/uninstalled.
+
+Plugins are files in the link:.plugins.d/[plugins.d] directory of the tool. They need to have a name following the pattern <PLUGIN_NAME>.<global|local>.plugin
+
+You can:
+
+* list available plugins: *oc-cluster plugin-list*
+* Install a plugin: *oc-cluster plugin-install <PLUGIN_NAME>*
+* Uninstall a plugin: *oc-cluster plugin-uninstall <PLUGIN_NAME>*
+
+=== Global plugins
+These plugins provide methods that augment the functionality of the tool. 
+
+They are always available (installed). 
+
+There is a template for these plugins available link:.plugins.d/new-plugin.global.plugin[here]
+
+It has to have a method called <PLUGIN_NAME>.help with the description of the commands provided by the plugin, so they can be shown when
+printing the *oc-cluster -h*. 
+
+=== Local plugins
+These plugins provide methods that augment the functionality of the tool, or install software on the cluster. 
+
+These plugins need to be installed. 
+
+There is a template for these plugins available link:.plugins.d/new-plugin.local.plugin[here]
+
+These plugins need to have at list these methods:
+
+* <PLUGIN_NAME>.help: Description of the commands provided by the plugin, so they can be shown when printing the *oc-cluster -h*. 
+* <PLUGIN_NAME>.describe: Description of what the plugin does. It will be shown with *oc-cluster plugin-list*. 
+* <PLUGIN_NAME>.install: Installs the plugin. 
+* <PLUGIN_NAME>.uninstall: Uninstalls the plugin
+
+Can contain additional methods providing commands, like the global plugins.
+
+By default, a local plugin needs to always call <PLUGIN_NAME>.describe
+
+== Plugin list
+
+* cfme: Installs Cloudforms
+* cockpit: Installs cockpit
+* dotnetIS: Installs the .net imagestream
+* dotnetsample: deploys a .net sample application
+* gitlab: Installs gitlab
+* nexus: Installs nexus 2
+* nexus3: Installs nexus 3
+* oc-client: Builds the oc binary of a specific fork/branch and makes it downlodable. HANDY FOR OPENSHIFT ENGINEERS
+* pipelines: Installs pipelines capabilities (for oc client < 1.4)
+* prepull-images: Pulls some of the most common images. Handy to when you prune your docker local repository.
+* profilesnapshot: Provides the ability to store/restore a profile
+* registryv2: Configures your OpenShift embedded registry as v2
+* roadshow-test: Creates a sample project with the content the OpenShift RoadShow uses.
+* samplepipeline: Deploys a sample pipeline project.
+* user: Configures the cluster to use htpasswd and provide methods for user management
+* volumes: Provides commands to create PersistentVolumes (local to a profile or shared between profiles)
+
+And the list os constantly growing. Check what's available link:.plugins.d/[here] or get a list of plugins.
+
+== Convenience methods for working with persistent volumes (Provided as global plugin)
+Most users will need to work with persistent services, so we have added two convenience methods for working with volumes. One for cluster-specific
+volumes, and another for shared volumes (similating NFS server behaviors).
+
+* oc-cluster create-volume volumeName [size|10Gi] [path|/Users/jmorales/.oc/profiles/<profile>/volumes/<volumeName>]
+* oc-cluster create-shared-volume project/volumeName [size|10Gi] [path|/Users/jmorales/.oc/volumes/<volumeName>]
+
+=== oc-cluster create-volume
+This command will create a volume in the cluster's profile. That means that if the cluster is removed, the volume and the data stored in the volume
+will be removed as well. This will create a PV of type *hostPath*, with the specified size (or 10Gi by default), on the specified path (or the default for the profile)
+and a *Retain* policy for the data.
+
+=== oc-cluster create-shared-volume
+This command will create a volume in a shared location. That means that every cluster will have access to the data, and the data will not be removed if the cluster is
+removed. For the applications to be able to use this data, the created PV will be prebound to a specific project/namespace, with the same name for the volume as for the claim.
+This will create a PV of type *hostPath*, with the specified size (or 10Gi by default), on the specified path (or the default for the profile).
+With this second mechanism, we can, as an example, share the storage for our nexus deployment between all our clusters, and use nexus for java dependency management in a very
+convenient way.
+
+== Convenience methods for adding common software to your cluster (Provided as a local plugin)
+Right now, as this tool is created to boost my productivity (and one of my colleagues), we have some additional methods (that we will convert into plugins) to
+deploy commons stuff that we use in most of our clusters. In this way, we have a method to deploy nexus in a project called ci, and soon we will have one for gitlab, workshops, etc...
+
+----
+$ oc-cluster deploy-nexus
+Created project ci
+persistentvolume "nexus-data" created
+Volume created in /Users/jmorales/.oc/volumes/nexus-data
+service "nexus" created
+route "nexus" created
+deploymentconfig "nexus" created
+persistentvolumeclaim "nexus-data" created
+Project ci has been created and shared with you. It has a nexus instance that has shared storage with other clusters
+----
+
+== Bind to a reproducible IP
+In systems like linux or mac, you can create a link-local interface, with a static ip, that you can reuse in any place you go. There's a system environment variable
+that you can define to use this ip to bind the cluster to. Otherwise it will default to 127.0.0.1
+
+Example:
+
+----
+export OC_CLUSTER_PUBLIC_HOSTNAME=11.2.2.2
+----
+
+== Use alternate oc version
+If you want to have an alternate oc client/version than the one on the path, the script uses an environment variable *OC_BINARY* that let you replace
+the client used.
+
+----
+$ OC_CLIENT=oc-1.4.1 oc-cluster up
+# Using client for origin v1.4.1
+----
+
+== Faster s2i builds
+oc-cluster has the ability to bind_mount any local directory or binary to any container. I you mount your $M2_REPOSITORY or $HOME/.m2/repository to your java based
+s2i builder images, you'll be giving all the dependencies you have locally to your build container, which will greatly speed builds.
+
+You just need to create a *mounts-template.json* file in the directory of the tool and have the rules
+to inject you .m2/repository (or node, python, ruby) into the image. *oc-cluster* will detect automatically that you want to inject that
+folder when the file is present and if it has rules for oc injection.
+
+Here's an example of the content of the file to inject the oc binary into the origin container:
+
+----
+{
+  "bindMounts": [
+    {
+      "imagePattern": "openshift/wildfly.*",
+      "mounts": [
+        {
+          "source": "$M2_HOME",
+          "destination": "/opt/app-root/src/.m2/repository"
+        }
+      ]
+    }
+  ]
+}
+----
+
+By default, M2_HOME will point to $HOME/.m2/repository. You can export a different value, which will take effect.
+
+== Developing openshift
+With oc-cluster it's very easy to inject a oc binary into any image. You just need to create a *mounts-template.json* file in the directory of the tool and have the rules
+to inject you oc binary into the image. *oc-cluster* will detect automatically that you want to inject an oc binary when the file is present and if it has rules for oc injection.
+
+Here's an example of the content of the file to inject the oc binary into the origin container:
+
+----
+{
+  "bindMounts": [
+    {
+      "imagePattern": "(openshift/origin$)|(openshift/origin:.*)",
+      "mounts": [
+        {
+          "source": "$OPENSHIFT_BINARY",
+          "destination": "/usr/bin/openshift"
+        }
+      ]
+    }
+  ]
+}
+----
+
+Make sure that the variable $OPENSHIFT_BINARY points to your oc binary, or use the fully qualified value.
+
+== Prerequisites
+If you can run *oc cluster up* you can run this tool. This works anywhere that *oc cluster up* runs, so any limitation really will be more a *oc cluster* limitation than this tool's.
+
+NOTE: This tool assumes you run *oc cluster* with Docker native and not docker-machine.
+
+== ROADMAP
+Find here a list of things we would like to include in the tool. These will be tracked via issues to allow for feature discussion (https://github.com/openshift-evangelists/oc-cluster-wrapper/labels/enhancement):
+
+* Done [line-through]#link:https://github.com/openshift-evangelists/oc-cluster-wrapper/issues/26[RFE #26] Allow for login user and keep a KUBECONFIG in the profile. This is a feature that will allow to have multiple profiles using same clsuter ip, that will probably have different certificates, and different users. With a new "oc-cluster login" you'll be able to login with current certificates created on first boot.#
+* link:https://github.com/openshift-evangelists/oc-cluster-wrapper/issues/9[RFE #9] Allow to execute upstream images (--image=registry.access.redhat.com/openshift3/ose)
+* Done [line-through]#link:https://github.com/openshift-evangelists/oc-cluster-wrapper/issues/22[RFE #22] Use upstream command "status". https://github.com/openshift/origin/pull/11171#
+* link:https://github.com/openshift-evangelists/oc-cluster-wrapper/issues/21[RFE #21] Allow for profile snapshot/restore. This way you can create a cluster, provision it, use it, screw it, and restore to a safe point. There will be potential image conflicts, but will be assumable.
+* Done [line-through]#link:https://github.com/openshift-evangelists/oc-cluster-wrapper/issues/23[RFE #23] Ability to enable technology-preview features (like pipelines)#
+* Done [line-through]#link:https://github.com/openshift-evangelists/oc-cluster-wrapper/issues/20[RFE #20] Make additional commands via "plugins". Additional scripts in the same dir as cluster-up will provide additional provisioning capabilities. Installing nexus, gitlab, imagestreams, tech-preview,...#
+* link:https://github.com/openshift-evangelists/oc-cluster-wrapper/issues/19[RFE #19] Allow to use htpasswd identity provider and create users
+* Done [line-through]#link:https://github.com/openshift-evangelists/oc-cluster-wrapper/issues/17[RFE #17] Provide basic bash completion#
+* link:https://github.com/openshift-evangelists/oc-cluster-wrapper/issues/25[RFE #25] Add support for TimeZone
+* link:https://github.com/openshift-evangelists/oc-cluster-wrapper/issues/24[RFE #24] Add support for proxies
+
+Any idea you might have, share it with us.
+
+== Known Issues
+
+* [line-through]# In linux, profiles are written as root:root#
+
+== Contributing
+Pull Request, and issues to make the tool are welcome. Please help us make this tool better by contributing your use cases. Once we have the plugin mechanism, this will be easier to do.
+Also, we would love all of these use cases to be in official *oc cluster* tool but until that happens, we will keep using and maintaining this tool.
+
+*This work is done by the OpenShift Evangelist team*
