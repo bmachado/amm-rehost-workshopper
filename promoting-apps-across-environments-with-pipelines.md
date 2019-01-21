@@ -8,7 +8,7 @@ Our pipeline is somewhat simplified for the purposes of this Workshop. Inspect t
 
 ~~~shell
 oc projects
-oc project [your-username]-coolstore-prod
+oc project coolstore-prod
 oc describe bc/monolith-pipeline
 ~~~
 
